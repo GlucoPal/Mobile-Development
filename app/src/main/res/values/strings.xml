@@ -3,4 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_history">History</string>
+    <string name="success_desc">Congratulations! Your account has been created</string>
+    <string name="ok">OK</string>
+    <string name="success">Success</string>
 </resources>
