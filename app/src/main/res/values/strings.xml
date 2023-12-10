@@ -6,4 +6,7 @@
     <string name="success_desc">Congratulations! Your account has been created</string>
     <string name="ok">OK</string>
     <string name="success">Success</string>
+    <string name="failed">Failed</string>
+    <string name="failed_desc">Something went wrong\nplease try again!</string>
+    <string name="try_again">TRY AGAIN</string>
 </resources>
