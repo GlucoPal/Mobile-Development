@@ -12,4 +12,5 @@
     <color name="red_error">#EA4C4C</color>
     <color name="blue_item">#ADD6CF</color>
     <color name="background_color">#F2FFFA</color>
+    <color name="splash_screen">#648c8c</color>
 </resources>
