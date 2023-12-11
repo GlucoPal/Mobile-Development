@@ -9,4 +9,7 @@
     <string name="failed">Failed</string>
     <string name="failed_desc">Something went wrong\nplease try again!</string>
     <string name="try_again">TRY AGAIN</string>
+    <string name="welcome">Welcome to</string>
+    <string name="login">LOGIN</string>
+    <string name="register">REGISTER</string>
 </resources>
