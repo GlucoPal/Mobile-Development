@@ -10,4 +10,6 @@
     <color name="green_success">#43A680</color>
     <color name="grey">#757575</color>
     <color name="red_error">#EA4C4C</color>
+    <color name="blue_item">#ADD6CF</color>
+    <color name="background_color">#F2FFFA</color>
 </resources>
