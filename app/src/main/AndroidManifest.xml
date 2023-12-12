@@ -13,20 +13,28 @@
         android:theme="@style/Theme.GlucoPal"
         tools:targetApi="31">
         <activity
+            android:name=".ui.register.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.welcome.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".ui.welcome.WelcomeActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
     </application>
+
 </manifest>
