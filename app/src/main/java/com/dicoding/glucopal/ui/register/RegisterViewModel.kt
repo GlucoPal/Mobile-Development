@@ -16,10 +16,10 @@ class RegisterViewModel (private val repository: Repository) : ViewModel() {
     val registerResponse: LiveData<RegisterResponse> = _registerResponse
 
 
-    fun register(username: String, email:String, password:String, gender: Gender) {
+    fun register(username: String, email:String, password:String, repeatPassword:String, gender: Gender) {
         viewModelScope.launch {
             try {
-                _registerResponse.value = repository.register(username, email, password, gender)
+                _registerResponse.value = repository.register(username, email, password, repeatPassword, gender)
             } catch (e : Exception) {
                 Log.e("RegisterViewModel", "Error during registration", e)
                 _registerResponse.value = RegisterResponse(success = "0", message = "Terjadi Kesalahan.")

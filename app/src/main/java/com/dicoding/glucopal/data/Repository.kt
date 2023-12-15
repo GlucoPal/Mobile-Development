@@ -24,11 +24,11 @@ class Repository (
     }*/
 
     suspend fun login(email: String, password: String): LoginResponse {
-        return apiService.login(email, password)
+        return apiService.login(LoginData(email, password))
     }
 
-    suspend fun register(username: String, email: String, password: String, gender: Gender): RegisterResponse {
-        return apiService.register(username, email, password, gender)
+    suspend fun register(username: String, email: String, password: String, repeatPassword: String, gender: Gender): RegisterResponse {
+        return apiService.register(RegistrationData(username, email, password, repeatPassword, gender))
     }
 
 /*suspend fun getStories(): ListStoryResponse{

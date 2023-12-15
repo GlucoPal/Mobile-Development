@@ -98,8 +98,8 @@ class RegisterActivity : AppCompatActivity() {
                 // Cek apakah gender sudah dipilih
                 if (gender != null) {
                     // Kirim data registrasi ke ViewModel
-                    viewModel.register(username, email, password, gender)
-                    Log.d("ILHAN", "name: ${username}, email: ${email}, pass: ${password}, gender:${gender}")
+                    viewModel.register(username, email, password, confirmPassword, gender)
+                    Log.d("ILHAN", "name: ${username}, email: ${email}, pass: ${password}, repeatPassword: $confirmPassword gender:${gender}")
                 } else {
                     Toast.makeText(this, "Pilih jenis kelamin", Toast.LENGTH_SHORT).show()
                 }
