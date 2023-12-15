@@ -20,4 +20,12 @@
     <string name="gender">Choose Gender</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="namaMakanan">Nama Makanan</string>
+    <string name="namaMerk">Nama Merk</string>
+    <string name="gi">Glycemic Index</string>
+    <string name="gl">Glycemic Load</string>
+    <string name="classification">"Classification "</string>
+    <string name="resultGI">3.5</string>
+    <string name="resultGL">1.6</string>
+    <string name="resultClassification">Low</string>
 </resources>
