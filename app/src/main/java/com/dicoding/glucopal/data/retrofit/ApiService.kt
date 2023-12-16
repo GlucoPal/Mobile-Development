@@ -2,9 +2,11 @@ package com.dicoding.glucopal.data.retrofit
 
 import com.dicoding.glucopal.data.LoginData
 import com.dicoding.glucopal.data.RegistrationData
+import com.dicoding.glucopal.data.response.CategoryResponse
 import com.dicoding.glucopal.data.response.LoginResponse
 import com.dicoding.glucopal.data.response.RegisterResponse
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface ApiService {
@@ -13,4 +15,7 @@ interface ApiService {
 
     @POST("api/login")
     suspend fun login(@Body loginData: LoginData): LoginResponse
+
+    @GET("api/allfood")
+    suspend fun getCategory(): CategoryResponse
 }

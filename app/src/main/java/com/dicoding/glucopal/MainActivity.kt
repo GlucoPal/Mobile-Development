@@ -1,8 +1,8 @@
 package com.dicoding.glucopal
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +11,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.dicoding.glucopal.databinding.ActivityMainBinding
+import com.dicoding.glucopal.ui.scan.CategoryActivity
 import com.dicoding.glucopal.utils.getImageUri
 
 class MainActivity : AppCompatActivity() {
@@ -40,7 +41,10 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        binding.fabScan.setOnClickListener { startCamera() }
+        binding.fabScan.setOnClickListener {
+            val intent = Intent(this, CategoryActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun startCamera() {
@@ -52,14 +56,14 @@ class MainActivity : AppCompatActivity() {
         ActivityResultContracts.TakePicture()
     ) { isSuccess ->
         if (isSuccess) {
-            showImage()
+            // showImage()
         }
     }
 
-    private fun showImage() {
-        currentImageUri?.let {
-            Log.d("Image URI", "showImage: $it")
-            binding.previewImage.setImageURI(it)
-        }
-    }
+//    private fun showImage() {
+//        currentImageUri?.let {
+//            Log.d("Image URI", "showImage: $it")
+//            binding.previewImage.setImageURI(it)
+//        }
+//    }
 }

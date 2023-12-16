@@ -28,4 +28,7 @@
     <string name="resultGI">3.5</string>
     <string name="resultGL">1.6</string>
     <string name="resultClassification">Low</string>
+    <string name="login1">Login</string>
+    <string name="nutritionInformation">Nutrition Information</string>
+    <string name="selectCategory">Select Category</string>
 </resources>

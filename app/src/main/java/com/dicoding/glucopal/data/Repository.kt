@@ -1,6 +1,7 @@
 package com.dicoding.glucopal.data
 
 import com.dicoding.glucopal.data.pref.UserPreference
+import com.dicoding.glucopal.data.response.CategoryResponse
 import com.dicoding.glucopal.data.response.LoginResponse
 import com.dicoding.glucopal.data.response.LoginResult
 import com.dicoding.glucopal.data.response.RegisterResponse
@@ -29,6 +30,10 @@ class Repository (
 
     suspend fun register(username: String, email: String, password: String, repeatPassword: String, gender: Gender): RegisterResponse {
         return apiService.register(RegistrationData(username, email, password, repeatPassword, gender))
+    }
+
+    suspend fun getCategory(): CategoryResponse {
+        return apiService.getCategory()
     }
 
 /*suspend fun getStories(): ListStoryResponse{

@@ -43,12 +43,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/mobile_navigation" />
 
-    <ImageView
-        android:id="@+id/previewImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_anchor="@+id/nav_host_fragment_activity_main"
-        app:layout_anchorGravity="center"
-        tools:srcCompat="@tools:sample/avatars" />
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
