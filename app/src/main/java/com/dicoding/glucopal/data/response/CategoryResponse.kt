@@ -14,7 +14,7 @@ data class CategoryResponse(
 data class DataItem(
 
 	@field:SerializedName("GI")
-	val gI: Int? = null,
+	val gI: Float? = null,
 
 	@field:SerializedName("photo")
 	val photo: String? = null,

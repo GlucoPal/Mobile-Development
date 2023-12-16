@@ -59,4 +59,11 @@
     <string name="login1">Login</string>
     <string name="nutritionInformation">Nutrition Information</string>
     <string name="selectCategory">Select Category</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="scan">Scanning</string>
+    <string name="nameItem">Enter Name</string>
+    <string name="name">Name</string>
+    <string name="category">Category</string>
+    <string name="Milk">Milk</string>
 </resources>

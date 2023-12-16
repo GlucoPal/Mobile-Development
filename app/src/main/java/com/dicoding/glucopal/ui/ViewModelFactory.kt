@@ -9,6 +9,7 @@ import com.dicoding.glucopal.di.Injection
 import com.dicoding.glucopal.ui.login.LoginViewModel
 import com.dicoding.glucopal.ui.register.RegisterViewModel
 import com.dicoding.glucopal.ui.scan.CategoryViewModel
+import com.dicoding.glucopal.ui.scan.UploadViewModel
 
 
 class ViewModelFactory(private val repository: Repository) : ViewModelProvider.NewInstanceFactory() {
@@ -26,12 +27,11 @@ class ViewModelFactory(private val repository: Repository) : ViewModelProvider.N
             modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
                 RegisterViewModel(repository) as T
             }
-            /*modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
-                DetailViewModel(repository) as T
-            }*/
             modelClass.isAssignableFrom(CategoryViewModel::class.java) -> {
                 CategoryViewModel(repository) as T
-
+            }
+            modelClass.isAssignableFrom(UploadViewModel::class.java) -> {
+                UploadViewModel(repository) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)

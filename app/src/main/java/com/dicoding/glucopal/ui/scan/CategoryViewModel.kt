@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dicoding.glucopal.data.Repository
 import com.dicoding.glucopal.data.response.CategoryResponse
+import com.dicoding.glucopal.data.response.DataItem
 import kotlinx.coroutines.launch
 
 class CategoryViewModel(private val categoryRepository: Repository) : ViewModel() {

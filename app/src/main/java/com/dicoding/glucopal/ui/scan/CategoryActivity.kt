@@ -25,7 +25,7 @@ class CategoryActivity : AppCompatActivity() {
 
         viewModel = obtainViewModel(this@CategoryActivity)
 
-        val layoutManager = GridLayoutManager(this, 2)
+        val layoutManager = GridLayoutManager(this, 3)
         categoryBinding.rvCategory.layoutManager = layoutManager
         val itemDecoration = DividerItemDecoration(this, layoutManager.orientation)
         categoryBinding.rvCategory.removeItemDecoration(itemDecoration)
@@ -40,8 +40,7 @@ class CategoryActivity : AppCompatActivity() {
                 Log.d("Anin - CategoryActivity", "Response not null")
                 if (categoryResponse.success == 1) {
                     Log.d("Anin - CategoryActivity", "Success")
-                    adapter.submitList(categoryResponse.data)
-                    // adapter.originalList = categoryResponse.data as List<DataItem>
+                    setData(categoryResponse)
                 } else {
                     Log.d("Anin - CategoryActivity", "Error Data")
                 }
@@ -49,21 +48,17 @@ class CategoryActivity : AppCompatActivity() {
                 Log.d("Anin - CategoryActivity", "Response Null")
             }
         }
-
-//        categoryBinding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String?): Boolean {
-//                return false
-//            }
-//
-//            override fun onQueryTextChange(newText: String?): Boolean {
-//                adapter.filter.filter(newText)
-//                return true
-//            }
-//        })
     }
 
     private fun obtainViewModel(activity: AppCompatActivity): CategoryViewModel {
         val factory = ViewModelFactory.getInstance(activity.application)
         return ViewModelProvider(activity, factory)[CategoryViewModel::class.java]
+    }
+
+    private fun setData(users: CategoryResponse?) {
+        val item = users?.data
+        val adapter = DataAdapter()
+        adapter.submitList(item)
+        categoryBinding.rvCategory.adapter = adapter
     }
 }

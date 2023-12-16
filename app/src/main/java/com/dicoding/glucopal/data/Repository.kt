@@ -5,9 +5,12 @@ import com.dicoding.glucopal.data.response.CategoryResponse
 import com.dicoding.glucopal.data.response.LoginResponse
 import com.dicoding.glucopal.data.response.LoginResult
 import com.dicoding.glucopal.data.response.RegisterResponse
+import com.dicoding.glucopal.data.response.UploadResponse
 import com.dicoding.glucopal.data.retrofit.ApiService
 import com.dicoding.glucopal.utils.Gender
 import kotlinx.coroutines.flow.Flow
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 
 class Repository (
     private val apiService: ApiService,
@@ -35,6 +38,10 @@ class Repository (
 
     suspend fun getCategory(): CategoryResponse {
         return apiService.getCategory()
+    }
+
+    suspend fun upload(userId: Int, image: MultipartBody.Part, food_name: RequestBody, idFood: RequestBody, GI: RequestBody): UploadResponse {
+        return apiService.uploadImage(userId, image, food_name, idFood, GI)
     }
 
 /*suspend fun getStories(): ListStoryResponse{
