@@ -7,6 +7,7 @@ import com.dicoding.glucopal.data.response.LoginResult
 import com.dicoding.glucopal.data.response.RegisterResponse
 import com.dicoding.glucopal.data.retrofit.ApiService
 import com.dicoding.glucopal.utils.Gender
+import kotlinx.coroutines.flow.Flow
 
 class Repository (
     private val apiService: ApiService,
@@ -16,11 +17,11 @@ class Repository (
         userPreference.saveSession(user)
     }
 
-    /*fun getSession(): Flow<LoginResult> {
+    fun getSession(): Flow<LoginResult> {
         return userPreference.getSession()
     }
 
-    suspend fun logout() {
+    /*suspend fun logout() {
         userPreference.logout()
     }*/
 

@@ -1,5 +1,6 @@
 package com.dicoding.glucopal.ui.login
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,6 +21,7 @@ class LoginViewModel (private val repository: Repository) : ViewModel() {
     fun saveSession(user: LoginResult) {
         viewModelScope.launch {
             repository.saveSession(user)
+            Log.d("Hakiki", "Login Result: $user")
         }
     }
 

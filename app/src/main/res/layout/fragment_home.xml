@@ -6,17 +6,99 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/ivPicture"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:src="@drawable/halaman_1"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/giButton"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/blue_item"
+        android:text="@string/glycemic_index"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:cornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivPicture" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/glButton"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/blue_item"
+        android:text="@string/glycemic_load"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:cornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/giButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bslButton"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/blue_item"
+        android:text="@string/blood_sugar_level"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:cornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/glButton" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--<androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontal2"
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.08"
+        app:layout_constraintStart_toStartOf="parent" />-->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.32"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

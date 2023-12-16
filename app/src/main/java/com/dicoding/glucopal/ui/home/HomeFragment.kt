@@ -1,13 +1,15 @@
 package com.dicoding.glucopal.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.dicoding.glucopal.databinding.FragmentHomeBinding
+import com.dicoding.glucopal.ui.bloodsugar.BloodSugarActivity
+import com.dicoding.glucopal.ui.glycemicindex.GycemicIndexActivity
+import com.dicoding.glucopal.ui.glycemicload.GlycemicLoadActivity
 
 class HomeFragment : Fragment() {
 
@@ -22,15 +24,26 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        val giButton = binding.giButton
+        val glButton = binding.glButton
+        val bslButton = binding.bslButton
+
+        giButton.setOnClickListener {
+            val intent = Intent(requireContext(), GycemicIndexActivity::class.java)
+            startActivity(intent)
+        }
+
+        glButton.setOnClickListener {
+            val intent = Intent(requireContext(), GlycemicLoadActivity::class.java)
+            startActivity(intent)
+        }
+
+        bslButton.setOnClickListener {
+            val intent = Intent(requireContext(), BloodSugarActivity::class.java)
+            startActivity(intent)
         }
         return root
     }

@@ -20,10 +20,38 @@
     <string name="gender">Choose Gender</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="glycemic_index">GLYCEMIC INDEX</string>
+    <string name="glycemic_load">GLYCEMIC LOAD</string>
+    <string name="blood_sugar_level">BLOOD SUGAR LEVEL</string>
+
+
+    <string name="gi_text"> The Glycemic Index (GI) is a ranking system that measures the impact of carbohydrates on our blood sugar levels. It assigns a numerical value to food based on how quickly the carbohydrates in that food are digested and absorbed.</string>
+    <string name="gi_text2"> The GI ranks carbohydrates on a scale from 0 to 100 according to their effect on blood sugar levels. Foods with a high GI (70 or higher) are broken down quickly, causing blood sugar and insulin levels to rise quickly. Foods with a low GI (55 or lower) are broken down more slowly, resulting in a gradual rise in blood sugar and insulin levels. </string>
+    <string name="gi_text3"> Low: 55 or less, Medium: 56–69, High: 70 and above</string>
+    <string name="gi_text4"> Low-GI diets have been shown to help people lose weight and improve their overall health by reducing hunger and cravings for sugary snacks between meals.</string>
+
+    <string name="gl_text"> Glycemic load is a measure of how a given food impacts blood sugar levels, and it is closely related to another concept, glycemic index (GI). The GI is a measure of how quickly a given food is converted into glucose, and is expressed on a scale of 1 to 100 (with 100 being the most rapid conversion). GL takes this one step further, taking into account not only the speed of glucose conversion, but also the amount of carbohydrates contained in a given food.</string>
+    <string name="gl_text2"> To calculate GL, the following formula is used: GL = (GI x amount of available carbohydrates per serving) divided by 100. The result of this calculation is then expressed in terms of grams of carbohydrates per serving.</string>
+    <string name="gl_text3"> GL values range from 0 to 100 and can be classified as follows: </string>
+    <string name="gl_text4"> Low GL : 0 – 10 </string>
+    <string name="gl_text5"> Moderate GL : 11–19 </string>
+    <string name="gl_text6"> High GL : 20+</string>
+    <string name="gl_text7"> Generally speaking, low GL foods are more beneficial for those looking to keep their blood sugar levels in check.</string>
+    <string name="gl_text8"> The benefits of a low GL diet are twofold. Firstly, it can help with weight loss, as foods with a high GL are more likely to be high in calories. Secondly, it can help to reduce the risk of developing type 2 diabetes, as it is able to reduce the amount of insulin that is required to balance blood sugar levels. For those who already have type 2 diabetes, a low GL diet can help to reduce the amount of medication that is needed, as well as the risk of developing further complications.</string>
+
+    <string name="bsl_text"> Blood sugar level, or Blood Sugar Level, refers to the amount of glucose present in the blood at a specific time. Glucose is a form of sugar that serves as the primary source of energy for the body. The proper balance of blood sugar is crucial for optimal body function.</string>
+    <string name="bsl_text1"> Here are some points related to blood sugar levels:</string>
+    <string name="bsl_text2">1. The Importance of Blood Sugar Balance. Maintaining a good balance of blood sugar is crucial for overall health and optimal body performance. Elevated blood sugar levels (hyperglycemia) or excessively low levels (hypoglycemia) can lead to serious health issues.</string>
+    <string name="bsl_text3">2. Regulation by Insulin and Glucagon. The hormones insulin and glucagon play a crucial role in regulating blood sugar levels. Insulin assists the body cells in absorbing glucose from the blood, while glucagon releases glucose into the bloodstream.</string>
+    <string name="bsl_text4">3. Normal Blood Sugar Levels. The normal range for fasting blood sugar (before meals) typically falls between 70 and 100 milligrams per deciliter (mg/dL). After meals, blood sugar levels may rise, but they should ideally return to the normal range within a few hours.</string>
+    <string name="bsl_text5">4. Importance for Diabetes. Diabetes mellitus is a condition in which the body cannot produce or effectively use insulin, resulting in high blood sugar levels. Diabetes can be managed through changes in diet, exercise, and, if necessary, medications or insulin.</string>
+    <string name="bsl_text6">5. Factors Influencing Blood Sugar. Dietary patterns, physical activity, stress, health conditions, and medications can influence blood sugar levels. Foods high in carbohydrates tend to raise blood sugar, while fiber, protein, and fats can help control glucose absorption.</string>
+
     <string name="namaMakanan">Nama Makanan</string>
     <string name="namaMerk">Nama Merk</string>
     <string name="gi">Glycemic Index</string>
     <string name="gl">Glycemic Load</string>
+    <string name="bsl">Blood Sugar Level</string>
     <string name="classification">"Classification "</string>
     <string name="resultGI">3.5</string>
     <string name="resultGL">1.6</string>

@@ -62,6 +62,8 @@ class LoginActivity : AppCompatActivity() {
                         Toast.makeText(this, "Anda gagal Login", Toast.LENGTH_SHORT).show()
 
                     } else {
+                        val loginResult = loginResponse.loginResult
+                        Log.d("ILHAN", "Login Result: $loginResult")
 
                         viewModel.saveSession(LoginResult(
                             loginResponse.loginResult?.userId,
@@ -70,6 +72,7 @@ class LoginActivity : AppCompatActivity() {
 
                             )
                         )
+                        Log.d("ILHAN", "userId: ${loginResponse.loginResult?.userId}}, username: ${loginResponse.loginResult?.username}, token: ${loginResponse.loginResult?.token}")
                         AlertDialog.Builder(this).apply {
                             setTitle("Yeah!")
                             setMessage("Anda berhasil login. Sudah tidak sabar untuk bercerita ya?")

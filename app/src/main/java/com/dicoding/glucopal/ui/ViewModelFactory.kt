@@ -3,6 +3,7 @@ package com.dicoding.glucopal.ui
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.dicoding.glucopal.MainViewModel
 import com.dicoding.glucopal.data.Repository
 import com.dicoding.glucopal.di.Injection
 import com.dicoding.glucopal.ui.login.LoginViewModel
@@ -15,9 +16,9 @@ class ViewModelFactory(private val repository: Repository) : ViewModelProvider.N
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
-            /*modelClass.isAssignableFrom(MainViewModel::class.java) -> {
+            modelClass.isAssignableFrom(MainViewModel::class.java) -> {
                 MainViewModel(repository) as T
-            }*/
+            }
 
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
                 LoginViewModel(repository) as T
