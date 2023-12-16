@@ -72,6 +72,11 @@ class LoginActivity : AppCompatActivity() {
 
                             )
                         )
+
+                        viewModel.getSession().observe(this) { session ->
+                            Log.d("Hakiki", "User Session LoginActivity: $session")
+                        }
+
                         Log.d("ILHAN", "userId: ${loginResponse.loginResult?.userId}}, username: ${loginResponse.loginResult?.username}, token: ${loginResponse.loginResult?.token}")
                         AlertDialog.Builder(this).apply {
                             setTitle("Yeah!")

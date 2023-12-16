@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.dicoding.glucopal.data.Repository
 import com.dicoding.glucopal.data.response.LoginResponse
@@ -21,8 +22,12 @@ class LoginViewModel (private val repository: Repository) : ViewModel() {
     fun saveSession(user: LoginResult) {
         viewModelScope.launch {
             repository.saveSession(user)
-            Log.d("Hakiki", "Login Result: $user")
+            Log.d("Hakiki", "Login Result loginviewmodel: $user")
         }
+    }
+
+    fun getSession(): LiveData<LoginResult> {
+        return repository.getSession().asLiveData()
     }
 
  fun login(email:String, password:String) {

@@ -23,6 +23,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        /*viewModel.getSession().observe(this) { session ->
+            Log.d("Hakiki", "User Session di MainActivity: $session")
+        }*/
+
         /*viewModel.getSession().observe(this) { user ->
             //Log.d("Isinya-MainAct", "Name: ${user.name}, Email: ${user.userId}, Token: ${user.token}")
             if (user.token != null) {
