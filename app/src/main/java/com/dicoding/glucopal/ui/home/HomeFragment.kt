@@ -1,11 +1,11 @@
 package com.dicoding.glucopal.ui.home
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.glucopal.MainViewModel
@@ -20,10 +20,9 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private lateinit var viewModel: MainViewModel
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
+    @SuppressLint("StringFormatInvalid")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,6 +32,13 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         viewModel = obtainViewModel(this@HomeFragment)
+
+        viewModel.getSession().observe(viewLifecycleOwner) { user ->
+            if (user.token != null) {
+                val username = user.username
+                binding.userName.text = username
+            }
+        }
 
         val logoutButton = binding.logoutButton
         val giButton = binding.giButton
