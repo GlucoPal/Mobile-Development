@@ -3,6 +3,7 @@ package com.dicoding.glucopal
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.dicoding.glucopal.databinding.ActivityMainBinding
 import com.dicoding.glucopal.ui.ViewModelFactory
 import com.dicoding.glucopal.ui.scan.CategoryActivity
+import com.dicoding.glucopal.ui.welcome.WelcomeActivity
 import com.dicoding.glucopal.utils.getImageUri
 
 class MainActivity : AppCompatActivity() {
@@ -34,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             Log.d("Hakiki", "User Session di MainActivity: $session")
         }*/
 
-        /*viewModel.getSession().observe(this) { user ->
+        viewModel.getSession().observe(this) { user ->
             //Log.d("Isinya-MainAct", "Name: ${user.name}, Email: ${user.userId}, Token: ${user.token}")
             if (user.token != null) {
 
@@ -49,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             }
-        }*/
+        }
 
         val navView: BottomNavigationView = binding.navView
         navView.background = null
