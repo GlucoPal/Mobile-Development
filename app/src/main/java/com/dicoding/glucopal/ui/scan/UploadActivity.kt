@@ -5,14 +5,12 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import com.dicoding.glucopal.R
-import com.dicoding.glucopal.data.response.DataItem
 import com.dicoding.glucopal.databinding.ActivityUploadBinding
 import com.dicoding.glucopal.ui.ViewModelFactory
 import com.dicoding.glucopal.utils.getImageUri
@@ -56,7 +54,11 @@ class UploadActivity : AppCompatActivity() {
         }
 
         uploadBinding.uploadButton.setOnClickListener {
-            uploadImage()
+            if (TextUtils.isEmpty(uploadBinding.descEditText.text.toString().trim())) {
+                Toast.makeText(this, "Please enter the name of food!", Toast.LENGTH_SHORT).show()
+            } else {
+                uploadImage()
+            }
         }
 
         categoryId = intent.getIntExtra(EXTRA_CATEGORY, 0)
@@ -130,12 +132,32 @@ class UploadActivity : AppCompatActivity() {
 
             uploadImageViewModel.uploadResponse.observe(this) { uploadScanResponse ->
                 if (uploadScanResponse != null) {
-                    if (uploadScanResponse.success == 0){
-                        Toast.makeText(this, "Upload Berhasil", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this, ScanResultActivity::class.java)
-                        intent.flags =
-                            Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                        startActivity(intent)
+                    if (uploadScanResponse.success == 1){
+                        val responseData = uploadScanResponse.data
+                        if (responseData != null) {
+                            val foodName = responseData.foodName
+                            val carbohydrate = responseData.charbo
+                            val protein = responseData.protein
+                            val fat = responseData.fat
+                            val calorie = responseData.calorie
+                            val servingSize = responseData.servingSize
+                            val glValue = responseData.gL
+                            val giValue = intent.getFloatExtra(EXTRA_GI, 0.0F)
+                            val imageCategory = intent.getStringExtra(EXTRA_IMAGE)
+
+                            Toast.makeText(this, "Upload Berhasil", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, ScanResultActivity::class.java)
+                            intent.putExtra("FOOD_NAME", foodName)
+                            intent.putExtra("CHARBO", carbohydrate)
+                            intent.putExtra("PROTEIN", protein)
+                            intent.putExtra("FAT", fat)
+                            intent.putExtra("CALORIE", calorie)
+                            intent.putExtra("SERVING_SIZE", servingSize)
+                            intent.putExtra("GL_VALUE", glValue)
+                            intent.putExtra("GI_VALUE", giValue)
+                            intent.putExtra("IMAGE", imageCategory)
+                            startActivity(intent)
+                        }
                     } else {
                         Log.d("Anin - CategoryActivity", "Error Data")
                     }

@@ -20,7 +20,7 @@ data class Data(
 	val charbo: String? = null,
 
 	@field:SerializedName("GL")
-	val gL: Any? = null,
+	val gL: Float? = null,
 
 	@field:SerializedName("image_path")
 	val imagePath: String? = null,
