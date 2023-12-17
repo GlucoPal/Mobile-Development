@@ -23,6 +23,8 @@ class CategoryActivity : AppCompatActivity() {
         categoryBinding = ActivityCategoryBinding.inflate(layoutInflater)
         setContentView(categoryBinding.root)
 
+        supportActionBar?.hide()
+
         viewModel = obtainViewModel(this@CategoryActivity)
 
         val layoutManager = GridLayoutManager(this, 3)

@@ -35,6 +35,8 @@ class ScanResultActivity : AppCompatActivity() {
         binding = ActivityScanResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.hide()
+
         foodName = intent.getStringExtra(EXTRA_NAME)
         carbohydrate = intent.getStringExtra(EXTRA_CHARBO)
         protein = intent.getStringExtra(EXTRA_PROTEIN)

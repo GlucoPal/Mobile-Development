@@ -45,6 +45,8 @@ class UploadActivity : AppCompatActivity() {
         uploadBinding = ActivityUploadBinding.inflate(layoutInflater)
         setContentView(uploadBinding.root)
 
+        supportActionBar?.hide()
+
         uploadBinding.cameraButton.setOnClickListener {
             startCamera()
         }

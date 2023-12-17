@@ -6,11 +6,13 @@ import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.dicoding.glucopal.databinding.ActivityMainBinding
+import com.dicoding.glucopal.ui.ViewModelFactory
 import com.dicoding.glucopal.ui.scan.CategoryActivity
 import com.dicoding.glucopal.utils.getImageUri
 
@@ -23,6 +25,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportActionBar?.hide()
+
+        viewModel = obtainViewModel(this@MainActivity)
+
+        /*viewModel.getSession().observe(this) { session ->
+            Log.d("Hakiki", "User Session di MainActivity: $session")
+        }*/
 
         /*viewModel.getSession().observe(this) { user ->
             //Log.d("Isinya-MainAct", "Name: ${user.name}, Email: ${user.userId}, Token: ${user.token}")
@@ -60,5 +70,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, CategoryActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun obtainViewModel(activity: AppCompatActivity): MainViewModel {
+        val factory = ViewModelFactory.getInstance(activity.application)
+        return ViewModelProvider(activity, factory).get(MainViewModel::class.java)
     }
 }

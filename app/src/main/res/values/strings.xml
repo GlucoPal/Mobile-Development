@@ -66,6 +66,8 @@
     <string name="name">Name</string>
     <string name="category">Category</string>
     <string name="Milk">Milk</string>
+    <string name="glucose_spike">GLUCOSE SPIKE</string>
+    <string name="halo">Halo,</string>
     <string name="detailInformation">Detail Information</string>
     <string name="charbo">Carbohydrates</string>
     <string name="protein">Protein</string>
