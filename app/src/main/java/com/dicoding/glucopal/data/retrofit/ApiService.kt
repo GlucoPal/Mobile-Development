@@ -3,6 +3,7 @@ package com.dicoding.glucopal.data.retrofit
 import com.dicoding.glucopal.data.LoginData
 import com.dicoding.glucopal.data.RegistrationData
 import com.dicoding.glucopal.data.response.CategoryResponse
+import com.dicoding.glucopal.data.response.HistoryResponse
 import com.dicoding.glucopal.data.response.LoginResponse
 import com.dicoding.glucopal.data.response.RegisterResponse
 import com.dicoding.glucopal.data.response.UploadResponse
@@ -34,4 +35,9 @@ interface ApiService {
         @Part("idFood") idFood: RequestBody,
         @Part("GI") GI: RequestBody
     ): UploadResponse
+
+    @GET("api/history/{idUser}")
+    suspend fun getHistory(
+        @Path("idUser") userId: String
+    ): HistoryResponse
 }

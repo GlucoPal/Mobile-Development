@@ -2,6 +2,7 @@ package com.dicoding.glucopal.data
 
 import com.dicoding.glucopal.data.pref.UserPreference
 import com.dicoding.glucopal.data.response.CategoryResponse
+import com.dicoding.glucopal.data.response.HistoryResponse
 import com.dicoding.glucopal.data.response.LoginResponse
 import com.dicoding.glucopal.data.response.LoginResult
 import com.dicoding.glucopal.data.response.RegisterResponse
@@ -42,6 +43,10 @@ class Repository (
 
     suspend fun upload(userId: String, image: MultipartBody.Part, food_name: RequestBody, idFood: RequestBody, GI: RequestBody): UploadResponse {
         return apiService.uploadImage(userId, image, food_name, idFood, GI)
+    }
+
+    suspend fun getHistory(userId: String): HistoryResponse {
+        return apiService.getHistory(userId)
     }
 
 /*suspend fun getStories(): ListStoryResponse{
