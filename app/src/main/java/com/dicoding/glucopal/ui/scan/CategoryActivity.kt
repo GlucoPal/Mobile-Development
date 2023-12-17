@@ -1,15 +1,14 @@
 package com.dicoding.glucopal.ui.scan
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.SearchView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
+import com.dicoding.glucopal.MainActivity
 import com.dicoding.glucopal.data.response.CategoryResponse
-import com.dicoding.glucopal.data.response.DataItem
 import com.dicoding.glucopal.databinding.ActivityCategoryBinding
 import com.dicoding.glucopal.ui.ViewModelFactory
 
@@ -17,6 +16,7 @@ class CategoryActivity : AppCompatActivity() {
     private lateinit var categoryBinding: ActivityCategoryBinding
     private lateinit var viewModel: CategoryViewModel
     private lateinit var adapter: DataAdapter
+    private var userId: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +25,9 @@ class CategoryActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
+        userId = intent.getStringExtra("USER_ID")
+        Log.d("Anin - CategoryActivity", "Received USER_ID: $userId")
+
         viewModel = obtainViewModel(this@CategoryActivity)
 
         val layoutManager = GridLayoutManager(this, 3)
@@ -32,7 +35,7 @@ class CategoryActivity : AppCompatActivity() {
         val itemDecoration = DividerItemDecoration(this, layoutManager.orientation)
         categoryBinding.rvCategory.removeItemDecoration(itemDecoration)
 
-        adapter = DataAdapter()
+        adapter = DataAdapter(userId!!)
         categoryBinding.rvCategory.adapter = adapter
 
         viewModel.getCategory()
@@ -50,6 +53,10 @@ class CategoryActivity : AppCompatActivity() {
                 Log.d("Anin - CategoryActivity", "Response Null")
             }
         }
+
+        categoryBinding.closeButton.setOnClickListener{
+            navigateToHome()
+        }
     }
 
     private fun obtainViewModel(activity: AppCompatActivity): CategoryViewModel {
@@ -59,8 +66,15 @@ class CategoryActivity : AppCompatActivity() {
 
     private fun setData(users: CategoryResponse?) {
         val item = users?.data
-        val adapter = DataAdapter()
+        val adapter = DataAdapter(userId!!)
         adapter.submitList(item)
         categoryBinding.rvCategory.adapter = adapter
+    }
+
+    private fun navigateToHome() {
+        val intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        finish()
     }
 }

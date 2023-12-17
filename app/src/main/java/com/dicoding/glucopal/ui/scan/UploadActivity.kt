@@ -116,7 +116,7 @@ class UploadActivity : AppCompatActivity() {
     @SuppressLint("NewApi")
     private fun uploadImage() {
         currentImageUri?.let { uri ->
-            val userId = 3
+            val userId = intent.getStringExtra(EXTRA_ID)
             val imageFile = uriToFile(uri, this).reduceFileImage()
             Log.d("Image File", "showImage: ${imageFile.path}")
             val nameFood = uploadBinding.descEditText.text.toString()
@@ -130,7 +130,7 @@ class UploadActivity : AppCompatActivity() {
             val requestIdFood = idFood.toRequestBody("text/plain".toMediaType())
             val requestGI = GI.toRequestBody("text/plain".toMediaType())
 
-            uploadImageViewModel.upload(userId, imageMultipart, requestNameFood, requestIdFood, requestGI)
+            uploadImageViewModel.upload(userId!!, imageMultipart, requestNameFood, requestIdFood, requestGI)
 
             uploadImageViewModel.uploadResponse.observe(this) { uploadScanResponse ->
                 if (uploadScanResponse != null) {
@@ -147,7 +147,7 @@ class UploadActivity : AppCompatActivity() {
                             val giValue = intent.getFloatExtra(EXTRA_GI, 0.0F)
                             val imageCategory = intent.getStringExtra(EXTRA_IMAGE)
 
-                            Toast.makeText(this, "Upload Berhasil", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "Scanning Success", Toast.LENGTH_SHORT).show()
                             val intent = Intent(this, ScanResultActivity::class.java)
                             intent.putExtra("FOOD_NAME", foodName)
                             intent.putExtra("CHARBO", carbohydrate)

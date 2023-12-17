@@ -40,7 +40,7 @@ class Repository (
         return apiService.getCategory()
     }
 
-    suspend fun upload(userId: Int, image: MultipartBody.Part, food_name: RequestBody, idFood: RequestBody, GI: RequestBody): UploadResponse {
+    suspend fun upload(userId: String, image: MultipartBody.Part, food_name: RequestBody, idFood: RequestBody, GI: RequestBody): UploadResponse {
         return apiService.uploadImage(userId, image, food_name, idFood, GI)
     }
 

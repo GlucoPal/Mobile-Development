@@ -10,11 +10,11 @@ import com.bumptech.glide.Glide
 import com.dicoding.glucopal.data.response.DataItem
 import com.dicoding.glucopal.databinding.ItemCategoryBinding
 
-class DataAdapter : ListAdapter<DataItem, DataAdapter.MyViewHolder>(DIFF_CALLBACK){
+class DataAdapter(private val userId: String) : ListAdapter<DataItem, DataAdapter.MyViewHolder>(DIFF_CALLBACK){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = ItemCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MyViewHolder(binding)
+        return MyViewHolder(binding, userId)
     }
 
     override fun onBindViewHolder(viewHolder: MyViewHolder, position: Int) {
@@ -22,6 +22,7 @@ class DataAdapter : ListAdapter<DataItem, DataAdapter.MyViewHolder>(DIFF_CALLBAC
         viewHolder.bind(itemList)
         viewHolder.itemView.setOnClickListener {
             val intent = Intent(viewHolder.itemView.context, UploadActivity::class.java)
+            intent.putExtra("USER_ID", userId)
             intent.putExtra("CATEGORY_ID", itemList.id)
             intent.putExtra("FOOD_NAME", itemList.food)
             intent.putExtra("IMAGE", itemList.photo)
@@ -30,7 +31,7 @@ class DataAdapter : ListAdapter<DataItem, DataAdapter.MyViewHolder>(DIFF_CALLBAC
         }
     }
 
-    class MyViewHolder(private val binding : ItemCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
+    class MyViewHolder(private val binding : ItemCategoryBinding, private val userId: String) : RecyclerView.ViewHolder(binding.root) {
         fun bind(review: DataItem){
             Glide.with(binding.root.context)
                 .load(review.photo.toString())

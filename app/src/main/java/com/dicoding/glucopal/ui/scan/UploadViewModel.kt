@@ -14,7 +14,7 @@ class UploadViewModel (private val repository: Repository) : ViewModel() {
     private var _uploadResponse = MutableLiveData<UploadResponse?>()
     val uploadResponse: LiveData<UploadResponse?> = _uploadResponse
 
-    fun upload(userId: Int, image: MultipartBody.Part, food_name: RequestBody, idFood: RequestBody, GI: RequestBody) {
+    fun upload(userId: String, image: MultipartBody.Part, food_name: RequestBody, idFood: RequestBody, GI: RequestBody) {
         viewModelScope.launch {
             try {
                 val uploadImageResponse = repository.upload(userId, image, food_name, idFood, GI)

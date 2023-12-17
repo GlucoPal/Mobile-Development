@@ -1,10 +1,8 @@
 package com.dicoding.glucopal
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -16,7 +14,6 @@ import com.dicoding.glucopal.databinding.ActivityMainBinding
 import com.dicoding.glucopal.ui.ViewModelFactory
 import com.dicoding.glucopal.ui.scan.CategoryActivity
 import com.dicoding.glucopal.ui.welcome.WelcomeActivity
-import com.dicoding.glucopal.utils.getImageUri
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,22 +29,17 @@ class MainActivity : AppCompatActivity() {
 
         viewModel = obtainViewModel(this@MainActivity)
 
-        /*viewModel.getSession().observe(this) { session ->
-            Log.d("Hakiki", "User Session di MainActivity: $session")
-        }*/
-
         viewModel.getSession().observe(this) { user ->
-            //Log.d("Isinya-MainAct", "Name: ${user.name}, Email: ${user.userId}, Token: ${user.token}")
             if (user.token != null) {
-
-                //viewModel.getStories()
                 Log.d("ILHAN", "token nya ${user.token}")
-
-            }else{
-
+                binding.fabScan.setOnClickListener {
+                    val intent = Intent(this, CategoryActivity::class.java)
+                    intent.putExtra("USER_ID", user.userId)
+                    startActivity(intent)
+                }
+            } else {
                 val intent = Intent(this, WelcomeActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                //Log.d("ILHAN", "intent: ${intent}")
                 startActivity(intent)
                 finish()
             }
@@ -58,8 +50,6 @@ class MainActivity : AppCompatActivity() {
         navView.menu.getItem(1).isEnabled = false
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home, R.id.navigation_history
@@ -67,11 +57,6 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-        binding.fabScan.setOnClickListener {
-            val intent = Intent(this, CategoryActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     private fun obtainViewModel(activity: AppCompatActivity): MainViewModel {

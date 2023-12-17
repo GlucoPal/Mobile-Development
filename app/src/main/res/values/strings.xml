@@ -79,4 +79,5 @@
     <string name="resultFat">1.59 2%</string>
     <string name="resultProtein">119g</string>
     <string name="resultCharbo">53g 19%</string>
+    <string name="scan_result">Scan Result</string>
 </resources>

@@ -28,7 +28,7 @@ interface ApiService {
     @Multipart
     @POST("api/scan/{idUser}")
     suspend fun uploadImage(
-        @Path("idUser") userId: Int,
+        @Path("idUser") userId: String,
         @Part image: MultipartBody.Part,
         @Part("food_name") foodName: RequestBody,
         @Part("idFood") idFood: RequestBody,
