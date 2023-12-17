@@ -4,9 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
 import com.dicoding.glucopal.data.Repository
 import com.dicoding.glucopal.data.response.LoginResponse
 import com.dicoding.glucopal.data.response.LoginResult
+import kotlinx.coroutines.launch
+
 
 class MainViewModel(private val repository: Repository) : ViewModel() {
 
@@ -16,10 +19,10 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
         return repository.getSession().asLiveData()
     }
 
-    /*fun logout() {
+    fun logout() {
         viewModelScope.launch {
             repository.logout()
         }
-    }*/
+    }
 
 }

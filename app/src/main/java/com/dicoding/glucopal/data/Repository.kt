@@ -24,9 +24,9 @@ class Repository (
         return userPreference.getSession()
     }
 
-    /*suspend fun logout() {
+    suspend fun logout() {
         userPreference.logout()
-    }*/
+    }
 
     suspend fun login(email: String, password: String): LoginResponse {
         return apiService.login(LoginData(email, password))
