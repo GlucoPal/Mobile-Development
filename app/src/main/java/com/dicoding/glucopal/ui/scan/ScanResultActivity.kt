@@ -1,10 +1,14 @@
 package com.dicoding.glucopal.ui.scan
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.dicoding.glucopal.MainActivity
+import com.dicoding.glucopal.R
 import com.dicoding.glucopal.databinding.ActivityScanResultBinding
 class ScanResultActivity : AppCompatActivity() {
     private lateinit var binding: ActivityScanResultBinding
@@ -30,6 +34,7 @@ class ScanResultActivity : AppCompatActivity() {
         const val EXTRA_GI_VALUE = "GI_VALUE"
         const val EXTRA_IMAGE = "IMAGE"
     }
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityScanResultBinding.inflate(layoutInflater)
@@ -50,7 +55,23 @@ class ScanResultActivity : AppCompatActivity() {
         binding.tvMerk.text = foodName
         binding.tvResultGI.text = giValue.toString()
         binding.tvResultGL.text = glValue.toString()
-//        binding.tvResultClassification.text
+
+        if (glValue < 10) {
+            binding.tvResultClassification.text = "Low"
+            binding.imageView3.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.class_low))
+            binding.constraintLayout.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.class_low))
+        } else if (glValue in 10.0..20.0) {
+            binding.tvResultClassification.text = "Medium"
+            binding.imageView3.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.class_medium))
+            binding.constraintLayout.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.class_medium))
+        } else if (glValue > 20) {
+            binding.tvResultClassification.text = "High"
+            binding.imageView3.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.class_high))
+            binding.constraintLayout.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.class_high))
+        } else {
+            binding.tvResultClassification.text = "Error"
+        }
+
         binding.resultCharbo.text = carbohydrate
         binding.resultProtein.text = protein
         binding.resultFat.text = fat
