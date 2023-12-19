@@ -11,12 +11,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.glucopal.R
 import com.dicoding.glucopal.databinding.ActivityRegisterBinding
 import com.dicoding.glucopal.ui.ViewModelFactory
-import android.view.LayoutInflater
 import android.view.View
 import android.view.Window
 import android.widget.Button
@@ -189,7 +187,7 @@ class RegisterActivity : AppCompatActivity() {
         dialog.show()
     }
 
-    fun toLoginClick (view: View) {
+    fun toLoginClick () {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
     }

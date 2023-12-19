@@ -1,16 +1,20 @@
 package com.dicoding.glucopal.ui.scan
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Filter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.glucopal.data.response.DataItem
 import com.dicoding.glucopal.databinding.ItemCategoryBinding
+import java.util.Locale
 
 class DataAdapter(private val userId: String) : ListAdapter<DataItem, DataAdapter.MyViewHolder>(DIFF_CALLBACK){
+    private var filteredList: List<DataItem> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = ItemCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -37,6 +41,30 @@ class DataAdapter(private val userId: String) : ListAdapter<DataItem, DataAdapte
                 .load(review.photo.toString())
                 .into(binding.photoFood)
             binding.tvFood.text = "${review.food}"
+        }
+    }
+
+    fun getFilter(): Filter {
+        return object : Filter() {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val queryString = constraint?.toString()?.lowercase(Locale.getDefault()) ?: ""
+                filteredList = if (queryString.isEmpty()) {
+                    currentList
+                } else {
+                    currentList.filter { it.food!!.lowercase(Locale.getDefault()).contains(queryString) }
+                }
+
+                val filterResults = FilterResults()
+                filterResults.values = filteredList
+                return filterResults
+            }
+
+            @SuppressLint("NotifyDataSetChanged")
+            @Suppress("UNCHECKED_CAST")
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                filteredList = results?.values as? List<DataItem> ?: emptyList()
+                notifyDataSetChanged()
+            }
         }
     }
 

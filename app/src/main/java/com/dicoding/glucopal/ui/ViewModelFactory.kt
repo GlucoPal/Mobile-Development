@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.dicoding.glucopal.MainViewModel
 import com.dicoding.glucopal.data.Repository
 import com.dicoding.glucopal.di.Injection
+import com.dicoding.glucopal.ui.history.DetailViewModel
+import com.dicoding.glucopal.ui.history.HistoryViewModel
 import com.dicoding.glucopal.ui.login.LoginViewModel
 import com.dicoding.glucopal.ui.register.RegisterViewModel
 import com.dicoding.glucopal.ui.scan.CategoryViewModel
@@ -31,6 +33,12 @@ class ViewModelFactory(private val repository: Repository) : ViewModelProvider.N
             }
             modelClass.isAssignableFrom(UploadViewModel::class.java) -> {
                 UploadViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(HistoryViewModel::class.java) -> {
+                HistoryViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
+                DetailViewModel(repository) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)

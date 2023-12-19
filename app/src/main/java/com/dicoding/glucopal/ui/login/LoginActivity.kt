@@ -16,8 +16,6 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.glucopal.MainActivity
 import com.dicoding.glucopal.R
@@ -25,7 +23,6 @@ import com.dicoding.glucopal.data.response.LoginResult
 import com.dicoding.glucopal.databinding.ActivityLoginBinding
 import com.dicoding.glucopal.ui.ViewModelFactory
 import com.dicoding.glucopal.ui.register.RegisterActivity
-import com.dicoding.glucopal.ui.welcome.WelcomeActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -105,7 +102,7 @@ class LoginActivity : AppCompatActivity() {
                 if (loginResponse != null) {
                     if (loginResponse.success== "0") {
 
-                        val message = loginResponse?.message ?: "Server not responding"
+                        val message = loginResponse.message ?: "Server not responding"
                         customDialogFailed(message)
 
                     } else {
@@ -120,16 +117,11 @@ class LoginActivity : AppCompatActivity() {
                             )
                         )
 
-                        viewModel.getSession().observe(this) { session ->
-                            //Log.d("Hakiki", "User Session LoginActivity: $session")
-                        }
-
-                        //Log.d("ILHAN", "userId: ${loginResponse.loginResult?.userId}}, username: ${loginResponse.loginResult?.username}, token: ${loginResponse.loginResult?.token}")
                         val message = loginResponse.message ?: "Server not responding"
                         customDialogSuccess(message)
+
                     }
                 } else {
-
                     val message = loginResponse?.message ?: "Server not responding"
                     customDialogFailed(message)
                 }
@@ -172,7 +164,7 @@ class LoginActivity : AppCompatActivity() {
         dialog.show()
     }
 
-    fun toRegisterClick (view: View) {
+    fun toRegisterClick () {
         val intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)
     }

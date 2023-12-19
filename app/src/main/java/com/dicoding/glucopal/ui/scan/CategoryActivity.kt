@@ -3,11 +3,13 @@ package com.dicoding.glucopal.ui.scan
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import com.dicoding.glucopal.MainActivity
+import com.dicoding.glucopal.R
 import com.dicoding.glucopal.data.response.CategoryResponse
 import com.dicoding.glucopal.databinding.ActivityCategoryBinding
 import com.dicoding.glucopal.ui.ViewModelFactory
@@ -65,10 +67,22 @@ class CategoryActivity : AppCompatActivity() {
     }
 
     private fun setData(users: CategoryResponse?) {
-        val item = users?.data
+        val itemList = users?.data
         val adapter = DataAdapter(userId!!)
-        adapter.submitList(item)
+        adapter.submitList(itemList)
         categoryBinding.rvCategory.adapter = adapter
+
+        val searchView = findViewById<SearchView>(R.id.searchView)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                adapter.getFilter().filter(newText)
+                return true
+            }
+        })
     }
 
     private fun navigateToHome() {

@@ -23,25 +23,27 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_centerInParent="true"
             android:fontFamily="@font/poppins_medium"
             android:text="@string/selectCategory"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
-
     </RelativeLayout>
 
-    <android.widget.SearchView
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginHorizontal="20dp"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:queryHint="Enter Category Food"
+        app:iconifiedByDefault="false"
+        app:queryBackground="@null"
         android:paddingBottom="8dp"
         android:background="@drawable/dialog_bg"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCategory"
@@ -53,6 +55,4 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="3"
         android:layout_marginBottom="12dp"/>
-
-
 </LinearLayout>
