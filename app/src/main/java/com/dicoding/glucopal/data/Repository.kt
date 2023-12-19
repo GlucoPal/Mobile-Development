@@ -53,26 +53,6 @@ class Repository (
         return apiService.getDetailHistory(resultId)
     }
 
-/*suspend fun getStories(): ListStoryResponse{
-        return apiService.getStories()
-    }
-
-
-suspend fun getDetailStory(id: String?): DetailStoryResponse {
-        return apiService.getDetailStory(id)
-    }
-
-
-suspend fun upload(description: RequestBody, file: MultipartBody.Part): FileUploadResponse {
-        return apiService.uploadImage(file, description)
-    }
-
-
-suspend fun getStoriesWithLocation(): ListStoryResponse {
-        return apiService.getStoriesWithLocation()
-    }*/
-
-
     companion object {
         @Volatile
         private var instance: Repository? = null

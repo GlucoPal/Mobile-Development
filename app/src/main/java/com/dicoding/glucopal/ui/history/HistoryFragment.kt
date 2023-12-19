@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -14,6 +15,8 @@ import com.dicoding.glucopal.databinding.FragmentHistoryBinding
 import com.dicoding.glucopal.ui.ViewModelFactory
 
 class HistoryFragment : Fragment() {
+    private lateinit var searchView: SearchView
+    private lateinit var adapter: HistoryAdapter
     private var _binding: FragmentHistoryBinding? = null
     private val binding get() = _binding!!
     private val historyViewModel: HistoryViewModel by viewModels { ViewModelFactory.getInstance(requireContext()) }
@@ -34,6 +37,9 @@ class HistoryFragment : Fragment() {
         binding.rvHistory.layoutManager = layoutManager
         val itemDecoration = DividerItemDecoration(requireContext(), layoutManager.orientation)
         binding.rvHistory.removeItemDecoration(itemDecoration)
+
+        adapter = HistoryAdapter()
+        binding.rvHistory.adapter = adapter
 
         historyViewModel.getSession().observe(viewLifecycleOwner) { loginResult ->
             val userId = loginResult?.userId
@@ -57,12 +63,32 @@ class HistoryFragment : Fragment() {
                 Log.d("Anin - CategoryActivity", "Response Null")
             }
         }
+
+        searchView = binding.searchView
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterList(newText)
+                return true
+            }
+
+        })
+    }
+
+    private fun filterList(query: String?) {
+        if (query != null) {
+            val filteredList = historyViewModel.historyResponse.value?.data
+                ?.filter { it!!.foodName!!.contains(query, ignoreCase = true) }
+            adapter.submitList(filteredList.orEmpty())
+        }
     }
 
     private fun setData(historyItems: List<HistoryItem?>?) {
-        val adapter = HistoryAdapter()
         adapter.submitList(historyItems)
-        binding.rvHistory.adapter = adapter
     }
 
     override fun onDestroyView() {

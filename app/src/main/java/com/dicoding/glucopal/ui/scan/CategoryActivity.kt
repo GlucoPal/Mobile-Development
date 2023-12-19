@@ -3,13 +3,12 @@ package com.dicoding.glucopal.ui.scan
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.SearchView
+import androidx.appcompat.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import com.dicoding.glucopal.MainActivity
-import com.dicoding.glucopal.R
 import com.dicoding.glucopal.data.response.CategoryResponse
 import com.dicoding.glucopal.databinding.ActivityCategoryBinding
 import com.dicoding.glucopal.ui.ViewModelFactory
@@ -18,6 +17,7 @@ class CategoryActivity : AppCompatActivity() {
     private lateinit var categoryBinding: ActivityCategoryBinding
     private lateinit var viewModel: CategoryViewModel
     private lateinit var adapter: DataAdapter
+    private lateinit var searchView: SearchView
     private var userId: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,6 +56,20 @@ class CategoryActivity : AppCompatActivity() {
             }
         }
 
+        searchView = categoryBinding.searchView
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterList(newText)
+                return true
+            }
+
+        })
+
         categoryBinding.closeButton.setOnClickListener{
             navigateToHome()
         }
@@ -66,23 +80,18 @@ class CategoryActivity : AppCompatActivity() {
         return ViewModelProvider(activity, factory)[CategoryViewModel::class.java]
     }
 
+    private fun filterList(query: String?) {
+        if (query != null) {
+            val filteredList = viewModel.categoryResponse.value?.data
+                ?.filter { it!!.food!!.contains(query, ignoreCase = true) }
+            adapter.submitList(filteredList.orEmpty())
+        }
+    }
+
     private fun setData(users: CategoryResponse?) {
         val itemList = users?.data
-        val adapter = DataAdapter(userId!!)
-        adapter.submitList(itemList)
-        categoryBinding.rvCategory.adapter = adapter
-
-        val searchView = findViewById<SearchView>(R.id.searchView)
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                adapter.getFilter().filter(newText)
-                return true
-            }
-        })
+        adapter.setUserId(userId!!)
+        adapter.submitList(itemList.orEmpty().filterNotNull())
     }
 
     private fun navigateToHome() {
