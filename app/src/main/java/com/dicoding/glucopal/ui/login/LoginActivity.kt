@@ -164,7 +164,7 @@ class LoginActivity : AppCompatActivity() {
         dialog.show()
     }
 
-    fun toRegisterClick () {
+    fun toRegisterClick (view: View) {
         val intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)
     }
