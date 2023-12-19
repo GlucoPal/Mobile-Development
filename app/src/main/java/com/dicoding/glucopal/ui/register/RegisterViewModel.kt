@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dicoding.glucopal.data.Repository
 import com.dicoding.glucopal.data.response.RegisterResponse
-import com.dicoding.glucopal.utils.Gender
 import kotlinx.coroutines.launch
 
 class RegisterViewModel (private val repository: Repository) : ViewModel() {
@@ -16,10 +15,10 @@ class RegisterViewModel (private val repository: Repository) : ViewModel() {
     val registerResponse: LiveData<RegisterResponse> = _registerResponse
 
 
-    fun register(username: String, email:String, password:String, repeatPassword:String, gender: Gender) {
+    fun register(username: String, email:String, password:String, repeatPassword:String) {
         viewModelScope.launch {
             try {
-                _registerResponse.value = repository.register(username, email, password, repeatPassword, gender)
+                _registerResponse.value = repository.register(username, email, password, repeatPassword)
             } catch (e : Exception) {
                 Log.e("RegisterViewModel", "Error during registration", e)
                 _registerResponse.value = RegisterResponse(success = "0", message = "Terjadi Kesalahan.")

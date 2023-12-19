@@ -35,7 +35,7 @@ class LoginViewModel (private val repository: Repository) : ViewModel() {
             try {
                 _loginResponse.value = repository.login(email, password)
             } catch (e : Exception) {
-                _loginResponse.value = LoginResponse(success = "0", message = "Terjadi Kesalahan.")
+                _loginResponse.value = LoginResponse(success = "0", message = "Invalid email or username")
             }
         }
     }

@@ -27,6 +27,15 @@
         app:layout_constraintGuide_percent="0.5"
         app:layout_constraintStart_toStartOf="parent"/>
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontal2"
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"/>
+
 <!--    <ProgressBar-->
 <!--        android:id="@+id/progressBar"-->
 <!--        style="?android:attr/progressBarStyle"-->
@@ -50,7 +59,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"/>
 
     <TextView
         android:id="@+id/textView"
@@ -63,7 +72,9 @@
         android:textColor="@color/black"
         android:textSize="36sp"
         app:layout_constraintTop_toTopOf="@+id/imageView"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="0dp"
+        android:alpha="0"
+        tools:alpha="100"/>
 
     <TextView
         android:id="@+id/nameTextView"
@@ -75,7 +86,9 @@
         android:fontFamily="@font/poppins_medium"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:alpha="0"
+        tools:alpha="100"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/nameEditTextLayout"
@@ -87,7 +100,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nameTextView"
-        app:startIconDrawable="@drawable/baseline_person_24">
+        app:startIconDrawable="@drawable/baseline_person_24"
+        android:alpha="0"
+        tools:alpha="100">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/nameEditText"
@@ -109,7 +124,9 @@
         android:textColor="@color/black"
         android:fontFamily="@font/poppins_medium"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameEditTextLayout"/>
+        app:layout_constraintTop_toBottomOf="@+id/nameEditTextLayout"
+        android:alpha="0"
+        tools:alpha="100"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailEditTextLayout"
@@ -121,7 +138,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/emailTextView"
-        app:startIconDrawable="@drawable/baseline_email_24">
+        app:startIconDrawable="@drawable/baseline_email_24"
+        android:alpha="0"
+        tools:alpha="100">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailEditText"
@@ -143,7 +162,9 @@
         android:textColor="@color/black"
         android:fontFamily="@font/poppins_medium"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailEditTextLayout"/>
+        app:layout_constraintTop_toBottomOf="@+id/emailEditTextLayout"
+        android:alpha="0"
+        tools:alpha="100"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordEditTextLayout"
@@ -155,7 +176,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/passwordTextView"
-        app:startIconDrawable="@drawable/baseline_lock_24">
+        app:startIconDrawable="@drawable/baseline_lock_24"
+        android:alpha="0"
+        tools:alpha="100">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordEditText"
@@ -177,7 +200,9 @@
         android:textColor="@color/black"
         android:fontFamily="@font/poppins_medium"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordEditTextLayout"/>
+        app:layout_constraintTop_toBottomOf="@+id/passwordEditTextLayout"
+        android:alpha="0"
+        tools:alpha="100"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/retypePasswordEditTextLayout"
@@ -189,7 +214,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/retypePasswordTextView"
-        app:startIconDrawable="@drawable/baseline_lock_24">
+        app:startIconDrawable="@drawable/baseline_lock_24"
+        android:alpha="0"
+        tools:alpha="100">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/retypePasswordEditText"
@@ -201,7 +228,7 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
+    <!--<TextView
         android:id="@+id/genderTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -240,15 +267,14 @@
             android:fontFamily="@font/poppins_medium"
 
             android:text="@string/female" />
-    </RadioGroup>
+    </RadioGroup>-->
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/regisButton"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp"
-
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="32dp"
         android:backgroundTint="@color/splash_screen"
         android:text="@string/register"
@@ -256,7 +282,42 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/retypePasswordEditTextLayout"
+        android:alpha="0"
+        tools:alpha="100"/>
+
+    <TextView
+        android:id="@+id/toRegisterText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/already_have_an_account"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regisButton"
+        android:alpha="0"
+        tools:alpha="100"/>
+
+    <TextView
+        android:id="@+id/toRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="264dp"
+        android:layout_marginTop="12dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/poppins_medium"
+        android:onClick="toLoginClick"
+        android:text="@string/login_text"
+        android:textColor="@color/link_text"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regisButton"
+        android:alpha="0"
+        tools:alpha="100"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
