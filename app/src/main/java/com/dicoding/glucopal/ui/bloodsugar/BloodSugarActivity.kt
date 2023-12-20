@@ -8,11 +8,17 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.ActionBar
 import com.dicoding.glucopal.R
+import com.dicoding.glucopal.databinding.ActivityBloodSugarBinding
+import com.dicoding.glucopal.databinding.ActivityGlucoSpikeBinding
+import com.dicoding.glucopal.databinding.ActivityGycemicIndexBinding
 
 class BloodSugarActivity : AppCompatActivity() {
+
+    lateinit var binding : ActivityBloodSugarBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_blood_sugar)
+        binding = ActivityBloodSugarBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupView()
     }
@@ -27,30 +33,11 @@ class BloodSugarActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
             )
         }
-        //supportActionBar?.title = "Glycemic Index"
 
-        supportActionBar?.apply {
-            // Enable custom view
-            displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
-            setCustomView(R.layout.custom_actionbar3)
-            setCustomView(R.layout.custom_actionbar3)
-            val params = ActionBar.LayoutParams(
-                ActionBar.LayoutParams.MATCH_PARENT,
-                ActionBar.LayoutParams.MATCH_PARENT
-            )
-            setCustomView(supportActionBar!!.customView, params)
-            setDisplayShowTitleEnabled(false)
-            setDisplayShowHomeEnabled(true)
-        }
-    }
+        supportActionBar?.hide()
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> {
-                onBackPressed()
-                return true
-            }
-            else -> return super.onOptionsItemSelected(item)
+        binding.toolbar.setNavigationOnClickListener{
+            onBackPressedDispatcher.onBackPressed()
         }
     }
 }

@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/background_color"
-            app:title="@string/bsl"
+            app:title="@string/gs"
             app:titleCentered="true"
             app:titleTextColor="@android:color/black"
             app:layout_scrollFlags="scroll|enterAlways"
@@ -31,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,17 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text"
-                android:textSize="16sp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text0"
+                android:text="@string/gs_text"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
@@ -73,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_medium"
-                android:text="@string/bsl_text1"
+                android:text="@string/gs_text0"
                 android:textSize="18sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
@@ -83,7 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text2"
+                android:text="@string/gs_text1"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
@@ -93,7 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text3"
+                android:text="@string/gs_text2"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
@@ -103,7 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text4"
+                android:text="@string/gs_text3"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
@@ -113,7 +104,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text5"
+                android:text="@string/gs_text4"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
@@ -123,7 +114,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text6"
+                android:text="@string/gs_text5"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
@@ -133,7 +124,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text7"
+                android:text="@string/gs_text6"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
@@ -143,17 +134,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text8"
-                android:textSize="16sp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="16dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text9"
+                android:text="@string/gs_text7"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
@@ -163,7 +144,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text10"
+                android:text="@string/gs_text8"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
@@ -173,7 +154,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text11"
+                android:text="@string/gs_text9"
+                android:textSize="16sp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/gs_text10"
+                android:textSize="16sp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/gs_text11"
+                android:textSize="16sp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/gs_text12"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
@@ -183,7 +194,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_medium"
-                android:text="@string/bsl_text12"
+                android:text="@string/gs_text13"
                 android:textSize="18sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
@@ -193,7 +204,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text13"
+                android:text="@string/gs_text14"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
@@ -203,7 +214,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text14"
+                android:text="@string/gs_text15"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
@@ -213,7 +224,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text15"
+                android:text="@string/gs_text16"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
@@ -223,7 +234,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text16"
+                android:text="@string/gs_text17"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
@@ -233,7 +244,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text17"
+                android:text="@string/gs_text18"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
@@ -243,7 +254,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text18"
+                android:text="@string/gs_text19"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
@@ -253,7 +264,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text19"
+                android:text="@string/gs_text20"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
@@ -263,7 +274,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text20"
+                android:text="@string/gs_text21"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
@@ -273,17 +284,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text21"
-                android:textSize="16sp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="16dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text22"
+                android:text="@string/gs_text22"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
@@ -293,7 +294,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text23"
+                android:text="@string/gs_text23"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
@@ -303,7 +304,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text24"
+                android:text="@string/gs_text24"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
@@ -313,7 +314,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text25"
+                android:text="@string/gs_text25"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
@@ -323,7 +324,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text26"
+                android:text="@string/gs_text26"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
@@ -333,17 +334,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text27"
-                android:textSize="16sp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="16dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text28"
+                android:text="@string/gs_text27"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
@@ -353,82 +344,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text29"
+                android:text="@string/gs_text28"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text30"
-                android:textSize="16sp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="16dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text31"
-                android:textSize="16sp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text32"
-                android:textSize="16sp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="16dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text33"
-                android:textSize="16sp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="16dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text34"
-                android:textSize="16sp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text35"
-                android:textSize="16sp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="16dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/poppins_regular"
-                android:text="@string/bsl_text36"
-                android:textSize="16sp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"/>
-
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guidelineVertical"
@@ -449,6 +369,7 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
         </LinearLayout>
+
     </ScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

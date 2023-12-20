@@ -26,26 +26,96 @@
 
 
     <string name="gi_text"> The Glycemic Index (GI) is a ranking system that measures the impact of carbohydrates on our blood sugar levels. It assigns a numerical value to food based on how quickly the carbohydrates in that food are digested and absorbed.</string>
-    <string name="gi_text2"> The GI ranks carbohydrates on a scale from 0 to 100 according to their effect on blood sugar levels. Foods with a high GI (70 or higher) are broken down quickly, causing blood sugar and insulin levels to rise quickly. Foods with a low GI (55 or lower) are broken down more slowly, resulting in a gradual rise in blood sugar and insulin levels. </string>
-    <string name="gi_text3"> Low: 55 or less, Medium: 56–69, High: 70 and above</string>
-    <string name="gi_text4"> Low-GI diets have been shown to help people lose weight and improve their overall health by reducing hunger and cravings for sugary snacks between meals.</string>
+    <string name="gi_text1"> The GI ranks carbohydrates on a scale from 0 to 100 according to their effect on blood sugar levels. Foods with a high GI (70 or higher) are broken down quickly, causing blood sugar and insulin levels to rise quickly. Foods with a low GI (55 or lower) are broken down more slowly, resulting in a gradual rise in blood sugar and insulin levels. </string>
+    <string name="gi_text2"> The Levels of Glycemic Index:</string>
+    <string name="gi_text3"> 1. Low: 55 or less</string>
+    <string name="gi_text4"> 2. Medium: 56–69</string>
+    <string name="gi_text5"> 3. High: 70 and above</string>
+    <string name="gi_text6"> Low-GI diets have been shown to help people lose weight and improve their overall health by reducing hunger and cravings for sugary snacks between meals.</string>
 
     <string name="gl_text"> Glycemic load is a measure of how a given food impacts blood sugar levels, and it is closely related to another concept, glycemic index (GI). The GI is a measure of how quickly a given food is converted into glucose, and is expressed on a scale of 1 to 100 (with 100 being the most rapid conversion). GL takes this one step further, taking into account not only the speed of glucose conversion, but also the amount of carbohydrates contained in a given food.</string>
-    <string name="gl_text2"> To calculate GL, the following formula is used: GL = (GI x amount of available carbohydrates per serving) divided by 100. The result of this calculation is then expressed in terms of grams of carbohydrates per serving.</string>
+    <string name="gl_text0"> Calculate GL</string>
+    <string name="gl_text1"> The following formula is used: GL = (GI x amount of available carbohydrates per serving) divided by 100. </string>
+    <string name="gl_text2"> The result of this calculation is then expressed in terms of grams of carbohydrates per serving.</string>
     <string name="gl_text3"> GL values range from 0 to 100 and can be classified as follows: </string>
-    <string name="gl_text4"> Low GL : 0 – 10 </string>
-    <string name="gl_text5"> Moderate GL : 11–19 </string>
-    <string name="gl_text6"> High GL : 20+</string>
+    <string name="gl_text4"> 1. Low GL : 0 – 10 </string>
+    <string name="gl_text5"> 2. Moderate GL : 11–19 </string>
+    <string name="gl_text6"> 3. High GL : 20+</string>
     <string name="gl_text7"> Generally speaking, low GL foods are more beneficial for those looking to keep their blood sugar levels in check.</string>
-    <string name="gl_text8"> The benefits of a low GL diet are twofold. Firstly, it can help with weight loss, as foods with a high GL are more likely to be high in calories. Secondly, it can help to reduce the risk of developing type 2 diabetes, as it is able to reduce the amount of insulin that is required to balance blood sugar levels. For those who already have type 2 diabetes, a low GL diet can help to reduce the amount of medication that is needed, as well as the risk of developing further complications.</string>
+    <string name="gl_text8"> Benefits of Glycemic Load</string>
+    <string name="gl_text9"> The benefits of a low GL diet are twofold. Firstly, it can help with weight loss, as foods with a high GL are more likely to be high in calories. Secondly, it can help to reduce the risk of developing type 2 diabetes, as it is able to reduce the amount of insulin that is required to balance blood sugar levels. For those who already have type 2 diabetes, a low GL diet can help to reduce the amount of medication that is needed, as well as the risk of developing further complications.</string>
 
-    <string name="bsl_text"> Blood sugar level, or Blood Sugar Level, refers to the amount of glucose present in the blood at a specific time. Glucose is a form of sugar that serves as the primary source of energy for the body. The proper balance of blood sugar is crucial for optimal body function.</string>
-    <string name="bsl_text1"> Here are some points related to blood sugar levels:</string>
-    <string name="bsl_text2">1. The Importance of Blood Sugar Balance. Maintaining a good balance of blood sugar is crucial for overall health and optimal body performance. Elevated blood sugar levels (hyperglycemia) or excessively low levels (hypoglycemia) can lead to serious health issues.</string>
-    <string name="bsl_text3">2. Regulation by Insulin and Glucagon. The hormones insulin and glucagon play a crucial role in regulating blood sugar levels. Insulin assists the body cells in absorbing glucose from the blood, while glucagon releases glucose into the bloodstream.</string>
-    <string name="bsl_text4">3. Normal Blood Sugar Levels. The normal range for fasting blood sugar (before meals) typically falls between 70 and 100 milligrams per deciliter (mg/dL). After meals, blood sugar levels may rise, but they should ideally return to the normal range within a few hours.</string>
-    <string name="bsl_text5">4. Importance for Diabetes. Diabetes mellitus is a condition in which the body cannot produce or effectively use insulin, resulting in high blood sugar levels. Diabetes can be managed through changes in diet, exercise, and, if necessary, medications or insulin.</string>
-    <string name="bsl_text6">5. Factors Influencing Blood Sugar. Dietary patterns, physical activity, stress, health conditions, and medications can influence blood sugar levels. Foods high in carbohydrates tend to raise blood sugar, while fiber, protein, and fats can help control glucose absorption.</string>
+    <string name="bsl_text"> Blood sugar, also known as blood glucose, is a crucial component of the human bodys overall health and functioning. It refers to the concentration of glucose, a type of sugar, in the bloodstream. Glucose serves as the primary source of energy for cells, tissues, and organs, and maintaining an optimal blood sugar level is essential for various physiological processes. The body tightly regulates blood sugar levels to ensure a balance between energy supply and demand.</string>
+    <string name="bsl_text0"> Heres a comprehensive explanation of blood sugar and its importance when selecting groceries: </string>
+    <string name="bsl_text1"> Understanding Blood Sugar:</string>
+    <string name="bsl_text2"> 1. Sources of Glucose: </string>
+    <string name="bsl_text3"> - Carbohydrates in food, such as sugars and starches, are broken down into glucose during digestion.</string>
+    <string name="bsl_text4"> - Glucose is absorbed into the bloodstream, causing an increase in blood sugar levels.</string>
+    <string name="bsl_text5"> 2. Insulin and Glucagon: </string>
+    <string name="bsl_text6"> - The pancreas plays a crucial role in regulating blood sugar levels.</string>
+    <string name="bsl_text7">  - Insulin, released by the pancreas, helps cells absorb glucose, reducing blood sugar levels.</string>
+    <string name="bsl_text8"> - Glucagon, also from the pancreas, raises blood sugar levels by stimulating the liver to release stored glucose.</string>
+    <string name="bsl_text9"> 3. Normal Blood Sugar Levels:</string>
+    <string name="bsl_text10"> – Fasting Blood Sugar (FBS): 70–100 mg/dL (milligrams per deciliter) before meals.</string>
+    <string name="bsl_text11"> - Postprandial Blood Sugar (PPBS): Less than 140 mg/dL two hours after eating.</string>
+    <string name="bsl_text12"> Importance when Selecting Groceries:</string>
+    <string name="bsl_text13"> 1. Carbohydrate Quality:</string>
+    <string name="bsl_text14"> - Choose complex carbohydrates such as whole grains, fruits, and vegetables over refined sugars and processed foods</string>
+    <string name="bsl_text15"> - High-fiber foods help slow down the absorption of glucose, preventing rapid spikes in blood sugar.</string>
+    <string name="bsl_text16"> 2. Glycemic Index:</string>
+    <string name="bsl_text17"> - Consider the glycemic index (GI) of foods. Lower GI foods have a slower impact on blood sugar levels.</string>
+    <string name="bsl_text18"> - Examples of low-GI foods include legumes, whole grains, and non-starchy vegetables.</string>
+    <string name="bsl_text19"> 3. Balanced Meals:</string>
+    <string name="bsl_text20"> - Opt for balanced meals that include a combination of carbohydrates, proteins, and healthy fats.</string>
+    <string name="bsl_text21"> - Proteins and fats can help stabilize blood sugar levels by slowing down the absorption of glucose.</string>
+    <string name="bsl_text22"> 4. Portion Control:</string>
+    <string name="bsl_text23">  - Be mindful of portion sizes to avoid overloading the body with excess glucose.</string>
+    <string name="bsl_text24"> - Eating smaller, more frequent meals can help regulate blood sugar throughout the day.</string>
+    <string name="bsl_text25"> 5. Sugar Content:</string>
+    <string name="bsl_text26"> - Read food labels to identify added sugars in products.</string>
+    <string name="bsl_text27"> - Minimize the intake of sugary beverages, snacks, and desserts.</string>
+    <string name="bsl_text28"> 6. Fresh Produce:</string>
+    <string name="bsl_text29"> - Choose a variety of fresh fruits and vegetables rich in vitamins, minerals, and antioxidants.</string>
+    <string name="bsl_text30"> - These foods provide nutrients without causing rapid spikes in blood sugar.</string>
+    <string name="bsl_text31"> 7. Lean Proteins and Healthy Fats:</string>
+    <string name="bsl_text32"> - Include lean proteins like poultry, fish, tofu, and healthy fats such as avocados and nuts.</string>
+    <string name="bsl_text33"> - These help maintain satiety and stabilize blood sugar levels.</string>
+    <string name="bsl_text34"> 8. Meal Planning:</string>
+    <string name="bsl_text35">  - Consider consulting a dietitian for personalized guidance based on individual health needs.</string>
+    <string name="bsl_text36"> In summary, being mindful of blood sugar levels when selecting groceries involves making informed choices about the types of carbohydrates, portion sizes, and overall nutritional balance in your diet. A diet rich in whole, nutrient-dense foods can contribute to better blood sugar control and overall health.</string>
+
+    <string name="gs_text"> A glucose spike refers to a rapid and temporary increase in blood glucose levels, commonly triggered by the consumption of food, especially those high in carbohydrates. Glucose is a type of sugar that serves as the primary source of energy for the bodys cells. When we eat, especially foods rich in sugars and carbohydrates, the body breaks down these compounds into glucose, leading to an increase in blood sugar levels. Understanding glucose spikes is particularly important for women, especially older moms, as it can have implications for both maternal health and the health of the developing fetus.</string>
+    <string name="gs_text0"> Mechanism of Glucose Spike Due to Sugar Consumption:</string>
+    <string name="gs_text1"> 1. Digestion and Absorption:</string>
+    <string name="gs_text2"> - When sugary products are consumed, the digestive system breaks down complex carbohydrates into simple sugars, such as glucose and fructose.</string>
+    <string name="gs_text3"> - These sugars are then rapidly absorbed into the bloodstream through the small intestine.</string>
+    <string name="gs_text4"> 2. Insulin Release:</string>
+    <string name="gs_text5"> - In response to the rise in blood sugar levels, the pancreas releases insulin, a hormone that helps cells take up and use glucose for energy.</string>
+    <string name="gs_text6"> - The goal is to bring blood sugar levels back to normal by facilitating the entry of glucose into cells.</string>
+    <string name="gs_text7"> 3. Insulin Resistance:</string>
+    <string name="gs_text8"> - With frequent and excessive consumption of sugary products, the body may develop insulin resistance over time.</string>
+    <string name="gs_text9"> - Insulin resistance occurs when cells become less responsive to the effects of insulin, making it harder for glucose to enter cells.</string>
+    <string name="gs_text10"> 4. Glucose Spike:</string>
+    <string name="gs_text11"> - Due to the combination of rapid sugar absorption and potential insulin resistance, blood glucose levels can spike, exceeding the normal range.</string>
+    <string name="gs_text12">  - The spike is characterized by a temporary increase in energy levels, but it is often followed by a crash as insulin works to lower blood sugar levels.</string>
+    <string name="gs_text13"> Implications for Women:</string>
+    <string name="gs_text14"> 1. Pregnancy and Gestational Diabetes:</string>
+    <string name="gs_text15"> - Pregnant women, especially older moms, may develop gestational diabetes, a condition where glucose levels rise during pregnancy.</string>
+    <string name="gs_text16"> - Glucose spikes during pregnancy can lead to complications such as macrosomia (large birth weight), preterm birth, and increased risk of cesarean delivery.</string>
+    <string name="gs_text17"> 2. Risk of Type 2 Diabetes:</string>
+    <string name="gs_text18"> - Women, especially as they age, may be at a higher risk of developing type 2 diabetes.</string>
+    <string name="gs_text19"> - Repeated glucose spikes can contribute to the development of insulin resistance, a precursor to type 2 diabetes.</string>
+    <string name="gs_text20"> 3. Cardiovascular Health:</string>
+    <string name="gs_text21"> - Persistent hyperglycemia can contribute to cardiovascular issues, impacting the heart health of women.</string>
+    <string name="gs_text22"> 4. Metabolic Changes:</string>
+    <string name="gs_text23"> - Aging is associated with metabolic changes, including alterations in insulin sensitivity.</string>
+    <string name="gs_text24"> - Older moms may be more prone to glucose spikes due to these age-related changes.</string>
+    <string name="gs_text25"> 5. Increased Health Risks:</string>
+    <string name="gs_text26"> - Older moms may have a higher likelihood of pre-existing health conditions such as hypertension or obesity, which can further elevate the risks associated with glucose spikes.</string>
+    <string name="gs_text27"> 6. Fetal Development:</string>
+    <string name="gs_text28"> - Glucose spikes in older moms during pregnancy may impact fetal development and increase the risk of complications, including birth defects and developmental issues.</string>
+
+
 
     <string name="namaMakanan">Nama Makanan</string>
     <string name="namaMerk">Nama Merk</string>
@@ -85,4 +155,5 @@
     <string name="don_t_have_an_account">Don’t have an account?</string>
     <string name="sign_up">Sign Up</string>
     <string name="login_text">Login</string>
+    <string name="gs">Glucose Spike</string>
 </resources>

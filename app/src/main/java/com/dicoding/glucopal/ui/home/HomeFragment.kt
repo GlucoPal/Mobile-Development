@@ -12,6 +12,7 @@ import com.dicoding.glucopal.MainViewModel
 import com.dicoding.glucopal.databinding.FragmentHomeBinding
 import com.dicoding.glucopal.ui.ViewModelFactory
 import com.dicoding.glucopal.ui.bloodsugar.BloodSugarActivity
+import com.dicoding.glucopal.ui.glucospike.GlucoSpikeActivity
 import com.dicoding.glucopal.ui.glycemicindex.GycemicIndexActivity
 import com.dicoding.glucopal.ui.glycemicload.GlycemicLoadActivity
 
@@ -44,6 +45,7 @@ class HomeFragment : Fragment() {
         val giButton = binding.giButton
         val glButton = binding.glButton
         val bslButton = binding.bslButton
+        val gsButton = binding.gsButton
 
         logoutButton.setOnClickListener {
             viewModel.logout()
@@ -61,6 +63,11 @@ class HomeFragment : Fragment() {
 
         bslButton.setOnClickListener {
             val intent = Intent(requireContext(), BloodSugarActivity::class.java)
+            startActivity(intent)
+        }
+
+        gsButton.setOnClickListener {
+            val intent = Intent(requireContext(), GlucoSpikeActivity::class.java)
             startActivity(intent)
         }
         return root

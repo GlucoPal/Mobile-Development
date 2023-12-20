@@ -1,18 +1,22 @@
-package com.dicoding.glucopal.ui.glycemicindex
+package com.dicoding.glucopal.ui.glucospike
 
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.WindowInsets
 import android.view.WindowManager
+import androidx.appcompat.app.ActionBar
+import com.dicoding.glucopal.R
+import com.dicoding.glucopal.databinding.ActivityGlucoSpikeBinding
 import com.dicoding.glucopal.databinding.ActivityGycemicIndexBinding
 
-class GycemicIndexActivity : AppCompatActivity() {
+class GlucoSpikeActivity : AppCompatActivity() {
 
-    lateinit var binding :ActivityGycemicIndexBinding
+    lateinit var binding : ActivityGlucoSpikeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityGycemicIndexBinding.inflate(layoutInflater)
+        binding = ActivityGlucoSpikeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setupView()
