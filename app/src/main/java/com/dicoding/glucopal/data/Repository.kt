@@ -53,6 +53,10 @@ class Repository (
         return apiService.getDetailHistory(resultId)
     }
 
+    suspend fun deleteHistoryItem(resultId: Int) {
+        return apiService.deleteHistoryItem(resultId)
+    }
+
     companion object {
         @Volatile
         private var instance: Repository? = null

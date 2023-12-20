@@ -156,4 +156,8 @@
     <string name="sign_up">Sign Up</string>
     <string name="login_text">Login</string>
     <string name="gs">Glucose Spike</string>
+    <string name="empty_history">History is Empty</string>
+    <string name="cancel">Cancel</string>
+    <string name="warning">Warning</string>
+    <string name="delete_message">Are you sure you want to delete this item?</string>
 </resources>

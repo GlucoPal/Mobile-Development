@@ -14,7 +14,7 @@ import com.dicoding.glucopal.R
 import com.dicoding.glucopal.data.response.HistoryItem
 import com.dicoding.glucopal.databinding.ItemResultBinding
 
-class HistoryAdapter : ListAdapter<HistoryItem, HistoryAdapter.MyViewHolder>(DIFF_CALLBACK) {
+class HistoryAdapter(private val onDeleteListener: (HistoryItem) -> Unit) : ListAdapter<HistoryItem, HistoryAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = ItemResultBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -29,6 +29,11 @@ class HistoryAdapter : ListAdapter<HistoryItem, HistoryAdapter.MyViewHolder>(DIF
             intent.putExtra("HISTORY_ID", historyItem.id)
             intent.putExtra("PHOTO", historyItem.photo)
             viewHolder.itemView.context.startActivity(intent)
+        }
+
+        viewHolder.itemView.setOnLongClickListener {
+            onDeleteListener.invoke(historyItem)
+            true
         }
     }
 
@@ -64,7 +69,7 @@ class HistoryAdapter : ListAdapter<HistoryItem, HistoryAdapter.MyViewHolder>(DIF
     companion object {
         val DIFF_CALLBACK = object : DiffUtil.ItemCallback<HistoryItem>() {
             override fun areItemsTheSame(oldItem: HistoryItem, newItem: HistoryItem): Boolean {
-                return oldItem == newItem
+                return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(oldItem: HistoryItem, newItem: HistoryItem): Boolean {

@@ -11,6 +11,7 @@ import com.dicoding.glucopal.data.response.UploadResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
@@ -46,4 +47,9 @@ interface ApiService {
     suspend fun getDetailHistory(
         @Path("idResult") resultId: Int
     ): DetailResponse
+
+    @DELETE("api/history/{idResult}")
+    suspend fun deleteHistoryItem(
+        @Path("idResult") resultId: Int
+    )
 }

@@ -1,5 +1,6 @@
 package com.dicoding.glucopal.ui.history
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,6 +18,21 @@ class HistoryViewModel(private val repository: Repository): ViewModel() {
     private val _loadingState = MutableLiveData<Boolean>()
     val loadingState: LiveData<Boolean> = _loadingState
 
+    private val _deletedItemPosition = MutableLiveData<Int>()
+    val deletedItemPosition: LiveData<Int> get() = _deletedItemPosition
+
+    fun deleteHistoryItem(resultId: Int) {
+        viewModelScope.launch {
+            try {
+                repository.deleteHistoryItem(resultId)
+                val updatedList = historyResponse.value?.data?.filter { it?.id != resultId }
+                _historyResponse.value = historyResponse.value?.copy(data = updatedList)
+            } catch (e: Exception) {
+                Log.e("HistoryViewModel", "Failed to delete history item", e)
+            }
+        }
+    }
+
     fun getHistory(userId: String) {
         viewModelScope.launch {
             try {
@@ -29,6 +45,7 @@ class HistoryViewModel(private val repository: Repository): ViewModel() {
             }
         }
     }
+
     fun getSession(): LiveData<LoginResult> {
         return repository.getSession().asLiveData()
     }
