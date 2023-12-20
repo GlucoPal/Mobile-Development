@@ -51,6 +51,10 @@ class HistoryFragment : Fragment() {
             }
         }
 
+        historyViewModel.loadingState.observe(viewLifecycleOwner) { isLoading ->
+            binding.loadingView.visibility = if (isLoading) View.VISIBLE else View.GONE
+        }
+
         historyViewModel.historyResponse.observe(viewLifecycleOwner) { historyResponse ->
             if (historyResponse != null) {
                 if (historyResponse.success == 1) {

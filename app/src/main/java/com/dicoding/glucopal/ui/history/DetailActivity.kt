@@ -4,6 +4,7 @@ import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.dicoding.glucopal.data.response.DetailResponse
@@ -34,6 +35,10 @@ class DetailActivity : AppCompatActivity() {
 
         val historyId = intent.getIntExtra(EXTRA_HISTORY, 0)
         viewModel.getDetailHistory(historyId)
+
+        viewModel.loadingState.observe(this) { isLoading ->
+            binding.loadingView.visibility = if (isLoading) View.VISIBLE else View.GONE
+        }
 
         viewModel.detailResponse.observe(this) { detailResponse ->
             if (detailResponse != null) {

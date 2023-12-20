@@ -3,6 +3,7 @@ package com.dicoding.glucopal.ui.scan
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -39,6 +40,10 @@ class CategoryActivity : AppCompatActivity() {
 
         adapter = DataAdapter(userId!!)
         categoryBinding.rvCategory.adapter = adapter
+
+        viewModel.loadingState.observe(this) { isLoading ->
+            categoryBinding.loadingView.visibility = if (isLoading) View.VISIBLE else View.GONE
+        }
 
         viewModel.getCategory()
 

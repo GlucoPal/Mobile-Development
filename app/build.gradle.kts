@@ -82,4 +82,7 @@ dependencies {
     implementation("androidx.room:room-paging:2.6.1")
     implementation("androidx.room:room-runtime:2.6.1")
     kapt("androidx.room:room-compiler:2.6.1")
+
+    implementation("com.github.razaghimahdi:Android-Loading-Dots:1.3.2")
+    implementation("com.github.ybq:Android-SpinKit:1.4.0")
 }

@@ -14,12 +14,18 @@ class HistoryViewModel(private val repository: Repository): ViewModel() {
     private var _historyResponse = MutableLiveData<HistoryResponse>()
     val historyResponse: LiveData<HistoryResponse> = _historyResponse
 
+    private val _loadingState = MutableLiveData<Boolean>()
+    val loadingState: LiveData<Boolean> = _loadingState
+
     fun getHistory(userId: String) {
         viewModelScope.launch {
             try {
+                _loadingState.value = true
                 _historyResponse.value = repository.getHistory(userId)
             } catch (e : Exception) {
                 _historyResponse.value = HistoryResponse(success = 0)
+            } finally {
+                _loadingState.value = false
             }
         }
     }

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -113,9 +114,18 @@ class UploadActivity : AppCompatActivity() {
         }
     }
 
+    private fun showProgress() {
+        uploadBinding.progressIndicator.visibility = View.VISIBLE
+    }
+
+    private fun hideProgress() {
+        uploadBinding.progressIndicator.visibility = View.GONE
+    }
+
     @SuppressLint("NewApi")
     private fun uploadImage() {
         currentImageUri?.let { uri ->
+            showProgress()
             val userId = intent.getStringExtra(EXTRA_ID)
             val imageFile = uriToFile(uri, this).reduceFileImage()
             Log.d("Image File", "showImage: ${imageFile.path}")
@@ -133,6 +143,7 @@ class UploadActivity : AppCompatActivity() {
             uploadImageViewModel.upload(userId!!, imageMultipart, requestNameFood, requestIdFood, requestGI)
 
             uploadImageViewModel.uploadResponse.observe(this) { uploadScanResponse ->
+                hideProgress()
                 if (uploadScanResponse != null) {
                     if (uploadScanResponse.success == 1){
                         val responseData = uploadScanResponse.data
