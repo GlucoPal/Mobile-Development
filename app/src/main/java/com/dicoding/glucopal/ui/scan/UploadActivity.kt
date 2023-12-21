@@ -1,8 +1,9 @@
 package com.dicoding.glucopal.ui.scan
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -11,8 +12,6 @@ import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.glucopal.databinding.ActivityUploadBinding
 import com.dicoding.glucopal.ui.ViewModelFactory
 import com.dicoding.glucopal.utils.getImageUri
@@ -24,7 +23,6 @@ import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 
 class UploadActivity : AppCompatActivity() {
-
     private lateinit var uploadBinding: ActivityUploadBinding
     private var currentImageUri: Uri? = null
     private val uploadImageViewModel by viewModels<UploadViewModel> {
@@ -35,7 +33,9 @@ class UploadActivity : AppCompatActivity() {
     private var foodName: String? = null
     private var resultGI = 0.0F
 
-    private var isScanning = false
+    private var errorToastShown = false
+    private var uploadInProgress = false
+    private var successToastShown = false
 
     companion object {
         const val EXTRA_CATEGORY = "CATEGORY_ID"
@@ -45,7 +45,6 @@ class UploadActivity : AppCompatActivity() {
         const val EXTRA_ID = "USER_ID"
     }
 
-    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         uploadBinding = ActivityUploadBinding.inflate(layoutInflater)
@@ -62,11 +61,10 @@ class UploadActivity : AppCompatActivity() {
         }
 
         uploadBinding.uploadButton.setOnClickListener {
-            if (!isScanning) {
-                if (TextUtils.isEmpty(uploadBinding.descEditText.text.toString().trim())) {
-                    Toast.makeText(this, "Please enter the name of food!", Toast.LENGTH_SHORT).show()
-                } else {
-                    isScanning = true
+            if (TextUtils.isEmpty(uploadBinding.descEditText.text.toString().trim())) {
+                Toast.makeText(this, "Please enter the name of food!", Toast.LENGTH_SHORT).show()
+            } else {
+                if (!uploadInProgress) {
                     uploadImage()
                 }
             }
@@ -123,17 +121,21 @@ class UploadActivity : AppCompatActivity() {
     }
 
     private fun showProgress() {
+        uploadInProgress = true
         uploadBinding.progressIndicator.visibility = View.VISIBLE
+        uploadBinding.uploadButton.isEnabled = false
     }
 
     private fun hideProgress() {
+        uploadInProgress = false
         uploadBinding.progressIndicator.visibility = View.GONE
+        uploadBinding.uploadButton.isEnabled = true
     }
 
-    @RequiresApi(Build.VERSION_CODES.Q)
+    @SuppressLint("NewApi")
     private fun uploadImage() {
+        showProgress()
         currentImageUri?.let { uri ->
-            showProgress()
             val userId = intent.getStringExtra(EXTRA_ID)
             val imageFile = uriToFile(uri, this).reduceFileImage()
             Log.d("Image File", "showImage: ${imageFile.path}")
@@ -151,46 +153,48 @@ class UploadActivity : AppCompatActivity() {
             uploadImageViewModel.upload(userId!!, imageMultipart, requestNameFood, requestIdFood, requestGI)
 
             uploadImageViewModel.uploadResponse.observe(this) { uploadScanResponse ->
-                hideProgress()
                 if (uploadScanResponse != null) {
                     if (uploadScanResponse.success == 1) {
-                        val responseData = uploadScanResponse.data
-                        if (responseData != null) {
-                            val foodName = responseData.foodName
-                            val carbohydrate = responseData.charbo
-                            val protein = responseData.protein
-                            val fat = responseData.fat
-                            val calorie = responseData.calorie
-                            val servingSize = responseData.servingSize
-                            val glValue = responseData.gL
-                            val giValue = intent.getFloatExtra(EXTRA_GI, 0.0F)
-                            val imageCategory = intent.getStringExtra(EXTRA_IMAGE)
+                        if (!successToastShown) {
+                            val responseData = uploadScanResponse.data
+                            if (responseData != null) {
+                                val foodName = responseData.foodName
+                                val carbohydrate = responseData.charbo
+                                val protein = responseData.protein
+                                val fat = responseData.fat
+                                val calorie = responseData.calorie
+                                val servingSize = responseData.servingSize
+                                val glValue = responseData.gL
+                                val giValue = intent.getFloatExtra(EXTRA_GI, 0.0F)
+                                val imageCategory = intent.getStringExtra(EXTRA_IMAGE)
 
-                            Toast.makeText(this, "Scanning Success", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(this, ScanResultActivity::class.java)
-                            intent.putExtra("FOOD_NAME", foodName)
-                            intent.putExtra("CHARBO", carbohydrate)
-                            intent.putExtra("PROTEIN", protein)
-                            intent.putExtra("FAT", fat)
-                            intent.putExtra("CALORIE", calorie)
-                            intent.putExtra("SERVING_SIZE", servingSize)
-                            intent.putExtra("GL_VALUE", glValue)
-                            intent.putExtra("GI_VALUE", giValue)
-                            intent.putExtra("IMAGE", imageCategory)
-                            startActivity(intent)
+                                Toast.makeText(this, "Scanning Success", Toast.LENGTH_SHORT).show()
+                                val intent = Intent(this, ScanResultActivity::class.java)
+                                intent.putExtra("FOOD_NAME", foodName)
+                                intent.putExtra("CHARBO", carbohydrate)
+                                intent.putExtra("PROTEIN", protein)
+                                intent.putExtra("FAT", fat)
+                                intent.putExtra("CALORIE", calorie)
+                                intent.putExtra("SERVING_SIZE", servingSize)
+                                intent.putExtra("GL_VALUE", glValue)
+                                intent.putExtra("GI_VALUE", giValue)
+                                intent.putExtra("IMAGE", imageCategory)
+                                startActivity(intent)
+
+                                successToastShown = true
+                            }
                         }
                     } else {
-                        Log.d("Anin - UploadActivity", "Error Data")
-                        Toast.makeText(this, "Error Data", Toast.LENGTH_SHORT).show()
+                        if (!errorToastShown) {
+                            Log.d("Anin - CategoryActivity", "Error Data")
+                            Toast.makeText(this, "Error Data", Toast.LENGTH_SHORT).show()
+                            errorToastShown = true
+                        }
                     }
                 }
-                onScanCompleted()
+                hideProgress()
+                uploadBinding.uploadButton.isEnabled = true
             }
         }
-    }
-
-    private fun onScanCompleted() {
-        isScanning = false
-        uploadBinding.uploadButton.isEnabled = true
     }
 }
