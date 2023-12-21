@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/ivPicture"
         app:layout_constraintTop_toTopOf="parent"
@@ -62,6 +62,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:src="@drawable/halaman_1"
+        app:cornerRadius="15dp"
         app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
