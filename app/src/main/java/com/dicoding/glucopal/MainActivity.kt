@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
+    private var isLoggedIn = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
                     intent.putExtra("USER_ID", user.userId)
                     startActivity(intent)
                 }
+                isLoggedIn = true
             } else {
                 val intent = Intent(this, WelcomeActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
@@ -62,5 +64,13 @@ class MainActivity : AppCompatActivity() {
     private fun obtainViewModel(activity: AppCompatActivity): MainViewModel {
         val factory = ViewModelFactory.getInstance(activity.application)
         return ViewModelProvider(activity, factory).get(MainViewModel::class.java)
+    }
+
+    override fun onBackPressed() {
+        if (isLoggedIn) {
+            finishAffinity()
+        } else {
+            super.onBackPressed()
+        }
     }
 }

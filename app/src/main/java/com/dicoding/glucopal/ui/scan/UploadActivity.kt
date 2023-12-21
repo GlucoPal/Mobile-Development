@@ -18,6 +18,7 @@ import com.dicoding.glucopal.ui.ViewModelFactory
 import com.dicoding.glucopal.utils.getImageUri
 import com.dicoding.glucopal.utils.reduceFileImage
 import com.dicoding.glucopal.utils.uriToFile
+import es.dmoral.toasty.Toasty
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -166,7 +167,7 @@ class UploadActivity : AppCompatActivity() {
                             val giValue = intent.getFloatExtra(EXTRA_GI, 0.0F)
                             val imageCategory = intent.getStringExtra(EXTRA_IMAGE)
 
-                            Toast.makeText(this, "Scanning Success", Toast.LENGTH_SHORT).show()
+                            Toasty.success(this, "Scanning Success", Toast.LENGTH_SHORT, true).show()
                             val intent = Intent(this, ScanResultActivity::class.java)
                             intent.putExtra("FOOD_NAME", foodName)
                             intent.putExtra("CHARBO", carbohydrate)
@@ -181,7 +182,7 @@ class UploadActivity : AppCompatActivity() {
                         }
                     } else {
                         Log.d("Anin - UploadActivity", "Error Data")
-                        Toast.makeText(this, "Error Data", Toast.LENGTH_SHORT).show()
+                        Toasty.error(this, "Error Data", Toast.LENGTH_SHORT, true).show()
                     }
                 }
                 onScanCompleted()
