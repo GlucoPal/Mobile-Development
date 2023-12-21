@@ -30,11 +30,6 @@ class HistoryAdapter(private val onDeleteListener: (HistoryItem) -> Unit) : List
             intent.putExtra("PHOTO", historyItem.photo)
             viewHolder.itemView.context.startActivity(intent)
         }
-
-        viewHolder.itemView.setOnLongClickListener {
-            onDeleteListener.invoke(historyItem)
-            true
-        }
     }
 
     class MyViewHolder(private val binding: ItemResultBinding) : RecyclerView.ViewHolder(binding.root) {
