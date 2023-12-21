@@ -184,6 +184,12 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(Intent(this, RegisterActivity::class.java))
             dialog.dismiss()
         }
+
+        dialog.setOnCancelListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
+            dialog.dismiss()
+        }
+
         dialog.show()
     }
 

@@ -1,5 +1,6 @@
 package com.dicoding.glucopal.data.retrofit
 
+import com.dicoding.glucopal.BuildConfig
 import com.dicoding.glucopal.data.response.LoginResult
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
@@ -30,7 +31,7 @@ class ApiConfig {
                 .build()
 
             val retrofit = Retrofit.Builder()
-                .baseUrl("http://34.143.171.177:3000/")
+                .baseUrl(BuildConfig.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

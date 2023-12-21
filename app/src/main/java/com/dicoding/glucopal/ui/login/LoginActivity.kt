@@ -144,6 +144,18 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             dialog.dismiss()
         }
+
+        dialog.setOnCancelListener {
+            startActivity(Intent(this, MainActivity::class.java))
+            dialog.dismiss()
+        }
+
+        val layoutParams = WindowManager.LayoutParams()
+        layoutParams.copyFrom(dialog.window?.attributes)
+        layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT
+        layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT
+        dialog.window?.attributes = layoutParams
+
         dialog.show()
     }
 
@@ -161,6 +173,12 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
             dialog.dismiss()
         }
+
+        dialog.setOnCancelListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+            dialog.dismiss()
+        }
+
         dialog.show()
     }
 

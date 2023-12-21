@@ -1,9 +1,8 @@
 package com.dicoding.glucopal.ui.scan
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -12,6 +11,8 @@ import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.glucopal.databinding.ActivityUploadBinding
 import com.dicoding.glucopal.ui.ViewModelFactory
 import com.dicoding.glucopal.utils.getImageUri
@@ -23,6 +24,7 @@ import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 
 class UploadActivity : AppCompatActivity() {
+
     private lateinit var uploadBinding: ActivityUploadBinding
     private var currentImageUri: Uri? = null
     private val uploadImageViewModel by viewModels<UploadViewModel> {
@@ -33,6 +35,8 @@ class UploadActivity : AppCompatActivity() {
     private var foodName: String? = null
     private var resultGI = 0.0F
 
+    private var isScanning = false
+
     companion object {
         const val EXTRA_CATEGORY = "CATEGORY_ID"
         const val EXTRA_FOOD = "FOOD_NAME"
@@ -41,6 +45,7 @@ class UploadActivity : AppCompatActivity() {
         const val EXTRA_ID = "USER_ID"
     }
 
+    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         uploadBinding = ActivityUploadBinding.inflate(layoutInflater)
@@ -57,10 +62,13 @@ class UploadActivity : AppCompatActivity() {
         }
 
         uploadBinding.uploadButton.setOnClickListener {
-            if (TextUtils.isEmpty(uploadBinding.descEditText.text.toString().trim())) {
-                Toast.makeText(this, "Please enter the name of food!", Toast.LENGTH_SHORT).show()
-            } else {
-                uploadImage()
+            if (!isScanning) {
+                if (TextUtils.isEmpty(uploadBinding.descEditText.text.toString().trim())) {
+                    Toast.makeText(this, "Please enter the name of food!", Toast.LENGTH_SHORT).show()
+                } else {
+                    isScanning = true
+                    uploadImage()
+                }
             }
         }
 
@@ -122,7 +130,7 @@ class UploadActivity : AppCompatActivity() {
         uploadBinding.progressIndicator.visibility = View.GONE
     }
 
-    @SuppressLint("NewApi")
+    @RequiresApi(Build.VERSION_CODES.Q)
     private fun uploadImage() {
         currentImageUri?.let { uri ->
             showProgress()
@@ -145,7 +153,7 @@ class UploadActivity : AppCompatActivity() {
             uploadImageViewModel.uploadResponse.observe(this) { uploadScanResponse ->
                 hideProgress()
                 if (uploadScanResponse != null) {
-                    if (uploadScanResponse.success == 1){
+                    if (uploadScanResponse.success == 1) {
                         val responseData = uploadScanResponse.data
                         if (responseData != null) {
                             val foodName = responseData.foodName
@@ -172,10 +180,17 @@ class UploadActivity : AppCompatActivity() {
                             startActivity(intent)
                         }
                     } else {
-                        Log.d("Anin - CategoryActivity", "Error Data")
+                        Log.d("Anin - UploadActivity", "Error Data")
+                        Toast.makeText(this, "Error Data", Toast.LENGTH_SHORT).show()
                     }
                 }
+                onScanCompleted()
             }
         }
+    }
+
+    private fun onScanCompleted() {
+        isScanning = false
+        uploadBinding.uploadButton.isEnabled = true
     }
 }
